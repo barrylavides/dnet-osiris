@@ -1,23 +1,23 @@
 {
-    "name": "osiris-browser",
-    "version": "0.1.0",
-    "description": "Decentralized browser",
-    "main": "main.js",
-    "scripts": {
-        "start": "electron ."
-    },
-    "repository": "https://github.com/decenternet/dnet-osiris",
-    "author": "Barry Lavides",
-    "license": "",
-    "devDependencies": {
-        "electron": "~v1.8.4",
-        "gulp": "^3.9.1",
-        "gulp-sass": "^3.1.0"
-    },
-    "dependencies": {
-        "electron": "~v1.8.4",
-        "favicon-getter": "^1.1.3",
-        "jsonfile": "^2.4.0",
-        "uuid": "^3.0.1"
-    }
+  "name": "osiris-browser",
+  "version": "0.1.0",
+  "description": "Decentralized browser",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/decenternet/dnet-osiris",
+  "author": "Barry Lavides",
+  "license": "",
+  "devDependencies": {
+    "electron": "~v1.8.4",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0"
+  },
+  "dependencies": {
+    "electron": "^1.8.4",
+    "favicon-getter": "^1.1.3",
+    "jsonfile": "^2.4.0",
+    "uuid": "^3.0.1"
+  }
 }
