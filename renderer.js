@@ -25,7 +25,9 @@ var addTabBtn = getElementById('nav-tabs-add');
 
 
 function reloadView () {
-    view.reload();
+    var activeIndex = $('.view-instance.active').index();
+
+    document.getElementsByClassName('view-instance')[activeIndex].reload();
 }
 
 function showUrl (event) {
@@ -63,11 +65,15 @@ function loadSiteUrl (event) {
 }
 
 function backView () {
-    view.goBack();
+    var activeIndex = $('.view-instance.active').index();
+
+    document.getElementsByClassName('view-instance')[activeIndex].goBack();
 }
 
 function forwardView () {
-    view.goForward();
+    var activeIndex = $('.view-instance.active').index();
+
+    document.getElementsByClassName('view-instance')[activeIndex].goForward();
 }
 
 var Bookmark = function (id, url, faviconUrl, title) {
