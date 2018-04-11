@@ -3,56 +3,153 @@
   <head>
     <meta charset="UTF-8">
     <title>Osiris Browser</title>
-    <link rel="stylesheet" href="css/font-awesome.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/sidebar-widget.css">
+    <link rel="stylesheet" href="assets/css/history-tab.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
   </head>
   <body>
-    <nav id="navigation">
-        <div id="back">
-            <i class="fa arrow-left" aria-hidden="true""></i>
+    <!--header navigation-->
+    <header class="header padding-adjust">
+        <nav id="navigation">
+            <div id="back">
+                <i class="fa arrow-left" aria-hidden="true"></i>
+            </div>
+            <div id="forward">
+                <i class="fa arrow-right" aria-hidden="true"></i>
+            </div>
+            <div id="refresh">
+                <i class="fa refresh-button" aria-hidden="true"></i>
+            </div>
+            <div id="omnibox">
+                <input type="text" id="url">
+            </div>
+            <div id="fave">
+                <i class="fa fa-star" aria-hidden="true"></i>
+            </div>
+            <div id="fave-popup" data-state="closed">
+            </div>
+            <div id="list">
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </div>
+        </nav><!--end header navigation-->
+    </header>
+    <!--Sidebar Widget-->
+    <div class="widget-tabs">
+        <aside class="bookmarks default">
+            <a title="Bookmarks"><i class="fa fa-heart" aria-hidden="true"></i></a>
+        </aside>
+        <aside class="snapshot default">
+            <a title="Snapshot"><i class="fa fa-camera" aria-hidden="true"></i></a>
+        </aside>
+        <aside class="history default">
+            <a title="History"><i class="fa fa-history" aria-hidden="true"></i></a>
+        </aside>
+        <aside class="unpin-widget">
+            <a title="Unpin"><i class="fa fa-history" aria-hidden="true"></i></a>
+        </aside>
+    </div>
+      <!--Will organize later after finalizing-->
+    <section class="web-ui">
+        <div class="default history">
+            <div class="history-menu">
+                <h2>History</h2>
+                <ul class="menu">
+                    <li style="margin-bottom:25px;" class="active">All</li>
+                    <li>Today</li>
+                    <li>Yesterday</li>
+                    <li>Older</li>
+                </ul>
+            </div>
+            <div class="history-content">
+                <div class="content">
+                    <header class="history-header">
+                      <div class="row">
+                          <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                              <form>
+                                <input type="text" placeholder="Search history">
+                              </form>
+                          </div>
+                          <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                              <div class="text-right">
+                                  <button>Clear browsing data..</button>
+                              </div>
+                          </div>
+                      </div>
+                    </header>
+                    <section class="history-process">
+                        <div class="row">
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                              <div class="history-today">
+
+                              </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                              <div class="history-yesterday">
+
+                              </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                              <div class="history-older">
+
+                              </div>
+                          </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
         </div>
-        <div id="forward">
-            <i class="fa arrow-right" aria-hidden="true"></i>
-        </div>
-        <div id="refresh">
-            <i class="fa refresh-button" aria-hidden="true"></i>
-        </div>
-        <div id="omnibox">
-            <input type="text" id="url">
-        </div>
-        <div id="fave">
-            <i class="fa fa-star" aria-hidden="true"></i>
-        </div>
-        <div id="fave-popup" data-state="closed">
-        </div>
-        <div id="list">
-            <i class="fa fa-list" aria-hidden="true"></i>
-        </div>
-    </nav>
-    <div id="nav-body-tabs">
-        <span id="tab1" class="nav-tabs-tab" data-session="4">
-            <i class="nav-tabs-favicon nav-icons">
-                <svg height="100%" viewBox="0 0 24 24" fill="#ffffff">
+    </section>
+    <!--end Sidebar Widget-->
+    <main role="main" class="main-content padding-adjust">
+        <div id="nav-body-tabs">
+            <span id="tab1" class="nav-tabs-tab" data-session="4">
+                <i class="nav-tabs-favicon nav-icons">
+                    <svg height="100%" viewBox="0 0 24 24" fill="#ffffff">
+                        <path d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"></path>
+                    </svg>
+                </i>
+                <i class="nav-tabs-title" title="Google">Google</i>
+            </span>
+            <i id="nav-tabs-add" class="nav-icons" title="Add new tab">
+                <svg height="100%" viewBox="0 0 24 24">
                     <path d="M0 0h24v24H0z" fill="none"></path>
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"></path>
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"></path>
                 </svg>
             </i>
-            <i class="nav-tabs-title" title="Google">Google</i>
-        </span>
-        <i id="nav-tabs-add" class="nav-icons" title="Add new tab">
-            <svg height="100%" viewBox="0 0 24 24">
-                <path d="M0 0h24v24H0z" fill="none"></path>
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"></path>
-            </svg>
-        </i>
-    </div>
-    <div id="view-container">
-        <webview id="view1" class="view-instance active" src="http://www.google.com/"></webview>
-        <span id="webview-reference"></span>
-    </div>
+            <!--<span id="tab1" class="nav-tabs-tab" data-session="4">
+                <i class="nav-tabs-favicon nav-icons">
+                    <svg height="100%" viewBox="0 0 24 24" fill="#ffffff">
+                        <path d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"></path>
+                    </svg>
+                </i>
+                <i class="nav-tabs-title" title="Google">History</i>
+            </span>
+            <i id="nav-tabs-add" class="nav-icons" title="Add new tab">
+                <svg height="100%" viewBox="0 0 24 24">
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"></path>
+                </svg>
+            </i>-->
+        </div>
+        <div id="view-container">
+            <webview id="view1" class="view-instance" src="http://www.google.com/"></webview>
+            <span id="webview-reference"></span>
+            <!--<webview id="view1" class="view-instance active" src="widget_modules/history.html "></webview>
+            <span id="webview-reference"></span>-->
+        </div>
+    </main>  <!--end main content-->
 
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
     <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="assets/js/global-script.js"></script>
     <script>
       require('./renderer.js')
     </script>

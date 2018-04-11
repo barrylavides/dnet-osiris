@@ -1,0 +1,49 @@
+.history{
+    position: relative;
+}
+  .history .history-menu{
+      width: 20%;
+      min-width: 200px;
+      height: 99999px;
+      border-right: 1px solid #dad6d6;
+      padding-top: 20px;
+  }
+    .history .history-menu::before{
+        content:'';
+    }
+    .history .history-menu h2{
+       font-weight: lighter;
+       font-size: 1.5rem;
+    }
+    .history .history-menu ul{
+       list-style: none;
+       padding: 0;
+       margin: :0;
+    }
+      .history .history-menu ul li{
+          font-size: 14px;
+          margin-bottom: 10px;
+      }
+  .history .history-menu,
+  .history .history-content{
+      float: left;
+  }
+  .history .history-content{
+    width: 80%;
+  }
+    .history .history-content .content{
+        margin-left: 20px;
+    }
+      .history .history-content .content .history-header{
+          padding: 20px 0px;
+          border-bottom: 1px solid #dad6d6;
+      }
+      .history .history-content .content .history-header input{
+          font-size: 14px;
+          padding: 2px 15px;
+          border-radius: 2px;
+          border: 1px solid #dad6d6;
+      }
+      .history .history-content .content .history-header button{
+          font-size: 14px;
+      }
