@@ -1,0 +1,50 @@
+.widget-tabs{
+	background: #191d1e;
+	height: 100%;
+	min-width: 46px;
+	padding-top: 76px;
+	position: fixed;
+	top: 0;
+	text-align: center;
+	z-index: 999;
+}
+.widget-tabs aside{
+	margin-bottom: 15px;
+}
+.widget-tabs a:hover {
+  position: relative;
+}
+.widget-tabs a[title]:hover:after{
+	background:rgba(0, 0, 0, 0.61);
+	border: 1px solid #000;
+	border-radius: 2px;
+	color: #fff;
+	content: attr(title);
+	padding: 6px 15px;
+	position: absolute;
+	left: 40px;
+	top: -7px;
+	white-space: nowrap;
+	z-index: 20px;
+}
+.widget-tabs a i.fa{
+		color: #fff;
+    font-size: 20px;
+		padding: 5px;
+    text-align: center;
+}
+
+section.web-ui{
+	position: absolute;
+  left: 46px;
+  width: 93%;
+  height: 100%;
+  background: #f5f7f8;
+  z-index: 9;
+  padding: 0 24px;
+	display: none;
+}
+.default-widget-active{
+	display: block!important;
+	width: 97%!important;
+}

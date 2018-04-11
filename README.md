@@ -1,6 +1,6 @@
 <h1>Osiris Browser</h1>
 
-Osiris is an open-source browser based on the Chromium browser. Chromium was started by Google, to provide the source code for the proprietary Google Chrome browser. The two browsers share the majority of code and features. It aims to build a safer, faster, and more stable way for all internet users to experience the web.
+Osiris is an open-source browser based on the Chromium browser using ElectronJS (https://electronjs.org). Chromium was started by Google, to provide the source code for the proprietary Google Chrome browser. The two browsers share the majority of code and features. It aims to build a safer, faster, and more stable way for all internet users to experience the web.
 
 <h2>Web Search</h2>
 Osiris is capable of rendering traditional websites, but its power is on its ability to navigate and display decentralized websites and applications. It was designed to adopt with other decentralized platforms thus making it powerful and united with all decentralized applications. Other platforms can build extensions on top of Cronus to make sure that their decentralized platforms protocol such as IPFS, Storj, SWARM, Shift and all incoming players can work together to achieve a fully neutral internet. We believe that there is no competition in achieving a new rich internet economy for all.
