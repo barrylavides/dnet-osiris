@@ -12,26 +12,35 @@
   <body>
     <!--header navigation-->
     <header class="header padding-adjust">
+        <div id="nav-body-tabs">
+            <span id="tab1" class="nav-tabs-tab" data-session="4">
+                <i class="nav-tabs-favicon nav-icons">
+                    <svg height="100%" viewBox="0 0 24 24" fill="#ffffff">
+                        <path d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"></path>
+                    </svg>
+                </i>
+                <i class="nav-tabs-title" title="Speed Dia">Speed Dial</i>
+            </span>
+            <i id="nav-tabs-add" class="nav-icons" title="Add new tab">
+                <svg height="100%" viewBox="0 0 24 24">
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"></path>
+                </svg>
+            </i>
+        </div>
         <nav id="navigation">
             <div id="back">
-                <a title="Back">
-                  <i class="fa arrow-left" aria-hidden="true"></i>
-                </a>
+                <i title="Back" class="fa arrow-left" aria-hidden="true"></i>
             </div>
             <div id="forward">
-                <a title="Forward">
-                  <i class="fa arrow-right" aria-hidden="true"></i>
-                </a>
+                <i title="Forward" class="fa arrow-right" aria-hidden="true"></i>
             </div>
             <div id="refresh">
-                <a title="Refresh">
-                  <i class="fa refresh-button" aria-hidden="true"></i>
-                </a>
+                <i title="Refresh" class="fa refresh-button" aria-hidden="true"></i>
             </div>
             <div id="speed-dial">
-              <a title="Speed Dial">
-                <i class="fa fa-list" aria-hidden="true"></i>
-              </a>
+                <i title="Start Page" class="fa fa-list" aria-hidden="true"></i>
             </div>
             <div id="omnibox">
                 <input type="text" id="url">
@@ -118,25 +127,8 @@
     </section>
     <!--end Sidebar Widget-->
     <main role="main" class="main-content padding-adjust">
-        <div id="nav-body-tabs">
-            <span id="tab1" class="nav-tabs-tab" data-session="4">
-                <i class="nav-tabs-favicon nav-icons">
-                    <svg height="100%" viewBox="0 0 24 24" fill="#ffffff">
-                        <path d="M0 0h24v24H0z" fill="none"></path>
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"></path>
-                    </svg>
-                </i>
-                <i class="nav-tabs-title" title="Google">Google</i>
-            </span>
-            <i id="nav-tabs-add" class="nav-icons" title="Add new tab">
-                <svg height="100%" viewBox="0 0 24 24">
-                    <path d="M0 0h24v24H0z" fill="none"></path>
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"></path>
-                </svg>
-            </i>
-        </div>
         <div id="view-container">
-            <webview id="view1" class="view-instance" src="http://www.google.com/"></webview>
+            <webview id="view1" class="view-instance active" src="default.html"></webview>
             <span id="webview-reference"></span>
         </div>
     </main>  <!--end main content-->
