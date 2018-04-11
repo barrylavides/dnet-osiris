@@ -25,7 +25,9 @@ var addTabBtn = getElementById('nav-tabs-add');
 
 
 function reloadView () {
-    view.reload();
+    var activeIndex = $('.view-instance.active').index();
+
+    document.getElementsByClassName('view-instance')[activeIndex].reload();
 }
 
 function showUrl (event) {
@@ -63,11 +65,15 @@ function loadSiteUrl (event) {
 }
 
 function backView () {
-    view.goBack();
+    var activeIndex = $('.view-instance.active').index();
+
+    document.getElementsByClassName('view-instance')[activeIndex].goBack();
 }
 
 function forwardView () {
-    view.goForward();
+    var activeIndex = $('.view-instance.active').index();
+
+    document.getElementsByClassName('view-instance')[activeIndex].goForward();
 }
 
 var Bookmark = function (id, url, faviconUrl, title) {
@@ -143,9 +149,12 @@ function openPopUp (event) {
 }
 
 function handleUrl (event) {
+    var activeIndex = $('.view-instance.active').index();
+
     if (event.target.className === 'link') {
         event.preventDefault();
-        view.loadURL(event.target.href);
+
+        document.getElementsByClassName('view-instance')[activeIndex].loadURL(event.target.href);
     } else if (event.target.className === 'favicon') {
         event.preventDefault();
         view.loadURL(event.target.parentElement.href);
@@ -238,7 +247,11 @@ refreshBtn.addEventListener('click', reloadView);
 omnibox.addEventListener('keydown', loadSiteUrl);
 backBtn.addEventListener('click', backView);
 forwardBtn.addEventListener('click', forwardView);
-view.addEventListener('did-finish-load', showUrl);
+
+var activeIndex = $('.view-instance.active').index();
+document.getElementsByClassName('view-instance')[activeIndex].addEventListener('did-finish-load', showUrl);
+// view.addEventListener('did-finish-load', showUrl);
+
 fave.addEventListener('click', addBookmark);
 list.addEventListener('click', openPopUp);
 popup.addEventListener('click', handleUrl);
