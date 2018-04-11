@@ -6,16 +6,16 @@ body {
 
 }
 #navigation {
-    color: #000;
-    padding-left: 8px;
-    height: 34px;
-    padding-top: 5px;
-    background: #FAFAFA;
-    border-bottom: 2px solid #FAFAFA;
-    border-bottom: 1px solid rgba(0,0,0,0.08);
-    top: 0;
-    left: 0;
-    margin: 0
+  color: #000;
+  padding-left: 8px;
+  height: 47px;
+  padding-top: 13px;
+  background: #FAFAFA;
+  border-bottom: 2px solid #FAFAFA;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  top: 0;
+  left: 0;
+  margin: 0;
 }
 
 #back, #forward, #refresh,#speed-dial {
@@ -190,4 +190,106 @@ input#url {
 
 .padding-adjust{
     margin-left: 47px;
+}
+
+/*
+Spee dial class
+*/
+.speed-dial-wrapper{
+  padding-top: 80px;
+  position: relative;
+}
+#google-search{
+  background: #fff;
+  padding: 15px 0px 5px 0px;
+  border-radius: 4px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+  outline: none;
+  transition: box-shadow 200ms cubic-bezier(0.4,0.0,0.2,1)
+}
+#google-search figure img,
+#google-search figure{
+  margin: 0;
+  padding: 0;
+}
+
+#google-search ul{
+  position: relative;
+  margin: :0;
+  padding: :0;
+}
+#google-search ul li{
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+}
+#google-search ul li.google-logo img{
+  width: 100px;
+  position:relative;
+  left: -10px;
+}
+#google-search ul li.google-search-bar input{
+  width: 100%;
+  font-size: 16px;
+  padding: 8px 8px;
+  outline: none;
+}
+#google-search ul li.google-search-bar button{
+  position: absolute;
+  z-index: 9;
+  display: block;
+  right: -15px;
+  top:0;
+  background:#4584ee;
+  padding: 10px 30px;
+  border:1px solid #4584ee;
+  outline: none;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+#google-search ul li.google-search-bar button i{color:#fff;}
+#google-search ul li:nth-child(1){
+  width: calc( 15% - 2px );
+}
+#google-search ul li:nth-child(2){
+  width: calc( 75% - 2px );
+}
+#google-search ul li {
+
+}
+.start-page-list-padding{
+  margin-top: 50px;
+}
+.start-page-list{}
+.start-page-list .list-site-background{
+  min-height: 120px;
+  background-size: cover!important;
+  border-radius: 5px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+  outline: none;
+  transition: box-shadow 200ms cubic-bezier(0.4,0.0,0.2,1)
+}
+.start-page-list h1{
+  font-size: 13px;
+  color: #fff;
+  text-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+}
+.start-page-list .add-site-button{
+  position: absolute;
+  top:40%;
+  width: 100%;
+}
+.start-page-list .add-site-button span{color: #fff;}
+
+.suggestion-list-padding{
+  margin-top: 20px;
+}
+.speed-dial-wrapper a{
+  text-decoration: none;
+}
+.suggestion-title{
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 22px;
+  text-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
 }
