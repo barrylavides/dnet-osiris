@@ -11,6 +11,7 @@
   "license": "",
   "devDependencies": {
     "electron": "~v1.8.4",
+    "electron-rebuild": "^1.7.3",
     "gulp": "^3.9.1",
     "gulp-sass": "^3.1.0"
   },
