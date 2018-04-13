@@ -3,13 +3,14 @@
   <head>
     <meta charset="UTF-8">
     <title>Osiris Browser</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/font-awesome.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/sidebar-widget.css">
     <link rel="stylesheet" href="assets/css/history-tab.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/settings.css">
   </head>
-  <body>
+  <body style="overflow-y:hidden;">
     <!--header navigation-->
     <header class="header padding-adjust">
         <div id="nav-body-tabs">
@@ -71,7 +72,7 @@
         </aside>
     </div>
       <!--Will organize later after finalizing-->
-    <section class="web-ui">
+    <!--<section class="web-ui">
         <div class="default history">
             <div class="history-menu">
                 <h2>History</h2>
@@ -125,10 +126,13 @@
             </div>
         </div>
     </section>
-    <!--end Sidebar Widget-->
+    end Sidebar Widget-->
+    <!--Setting landing page-->
+    <!--End landing page-->
     <main role="main" class="main-content padding-adjust">
         <div id="view-container">
-            <webview id="view1" class="view-instance active" src="default.html"></webview>
+            <webview id="view1" class="view-instance active"></webview>
+            <webview id="view1" class="view-instance active" src="settings.html"></webview>
             <span id="webview-reference"></span>
         </div>
     </main>  <!--end main content-->

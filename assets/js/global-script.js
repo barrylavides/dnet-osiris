@@ -7,8 +7,13 @@ $('.wallpaper-items').slick({
   slidesToShow: 3,
   slidesToScroll: 3
 });
+$('.wallpaper-items-settings').slick({
+  infinite: true,
+  slidesToShow: 7,
+  slidesToScroll: 7
+});
 //This is for the sidebar
-$(document).ready(function(){
+(function( $ ) {
 
   $( ".bookmarks a" ).click(function(event) {
       event.preventDefault();
@@ -23,8 +28,9 @@ $(document).ready(function(){
       $('body').css('overflow','hidden');
   });
 
-});
-$(document).ready(function(){
+})(jQuery);
+//Setting easy setup popup
+(function( $ ) {
   $( "#show-setting-button i" ).click(function(event){
     $('.startup-pop-up-settings').addClass('setting-active');
     $('.transparent-background').show();
@@ -36,4 +42,67 @@ $(document).ready(function(){
     $('.startup-pop-up-settings').removeClass('setting-active');
     $('.transparent-background').show();
   });
-});
+})(jQuery);
+
+(function( $ ) {
+  /* Tabs Activiation
+	================================================== */
+
+	var tabs = $('menu.sidebar-tab');
+
+	tabs.each(function(i) {
+
+		//Get all tabs
+		var tab = $(this).find('> li.tab');
+		tab.click(function(e) {
+      e.preventDefault();
+			//Get Location of tab's content
+			var contentId = $(this).attr('data-id');
+      //Make Tab Active
+      tab.removeClass('data-active');
+      $(this).addClass('data-active');
+      //Hide Previous Tab Content & remove active class
+      $('div.tab-content-item').removeClass('data-active');
+      //Show Tab Content & add active class
+      if($(contentId).not('active')){
+        $("[data-filter='"+contentId+"']").addClass('data-active');
+      }
+		});
+	});
+})(jQuery);
+(function( $ ) {
+  //Block ads process Settings
+  var buttonBlockadds = $('.block-ads-popup-settings');
+  var filterException = $('.filter-exception-list');
+  var manageExceptions = $('.manage-exceptions-wrapper');
+  var closeException = $('#close-filter-exception');
+  var closemList  = $('#close-filter-mlist');
+
+  $('#block-ads-checkbox').change(function(){
+    if(this.checked)
+      $(buttonBlockadds).show();
+    else
+    $(buttonBlockadds).hide();
+  });
+
+  $('.manage-exceptions-button').click(function(event){
+    $(filterException).show();
+    $(manageExceptions).show();
+  });
+
+  $(closeException).click(function(event){
+    $(filterException).hide();
+    $(manageExceptions).hide();
+  });
+
+  $('.manage-list-button').click(function(event){
+    $(filterException).show();
+    $('.manage-list-wrapper').show();
+  });
+
+  $(closemList).click(function(event){
+    $(filterException).hide();
+    $('.manage-list-wrapper').hide();
+  });
+
+})(jQuery);
