@@ -1,6 +1,7 @@
 body {
     margin: 0;
     font-family:sans-serif!important;
+    overflow-x: hidden;
 }
 .header{
 
@@ -113,7 +114,7 @@ input#url {
     right: 0;
     bottom: 0;
     width: 100%;
-    height: calc(100vh - 28px);
+    height: calc(93vh - 28px);
     display: none;
 }
 
@@ -292,4 +293,582 @@ Spee dial class
   color: #fff;
   margin-bottom: 22px;
   text-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+}
+/*show settings popup*/
+#show-setting-button i{
+  font-size: 17px;
+  position: absolute;
+  right: 22px;
+  top: 20px;
+  background: rgba(0, 0, 0, 0.65);
+  padding: 9px 8px;
+  border-radius: 100%;
+  color: #fff;
+  pointer:cursor;
+  z-index: 99;
+}
+.startup-pop-up-settings{
+  position: absolute;
+  right: -403px;
+  z-index: 99;
+  width: 400px;
+  min-height: 100%;
+  height: 100vh;
+  background: #fff;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.56), 0 0 0 1px rgba(0,0,0,0.08);
+  padding: 20px;
+  overflow-y: scroll;
+  -webkit-transition: 0.3s;
+          transition: 0.3s;
+}
+.setting-active{
+  right: 0!important;
+  overflow-y: scroll;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.6588235294117647);
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.6588235294117647)
+}
+.transparent-background{
+  background: rgba(255, 255, 255, 0);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+  display:none;
+}
+.startup-pop-up-settings {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.startup-pop-up-settings h1{
+  font-size: 16px;
+  margin:0;
+  font-weight: bold;
+}
+.startup-pop-up-settings i{
+  font-size: 17px;
+  margin-top: 2px;
+  pointer:cursor;
+}
+.startup-pop-up-settings .startup-separator{
+  border-top: 1px solid #ccc9c9;
+  margin: 21px 0;
+}
+.light-color,.dark-color{
+  margin: 20px 0;
+  position: relative;
+  z-index: 9999;
+
+}
+.light-color span,.dark-color span{
+  position: absolute;
+  font-weight: 100;
+  left: 68px;
+  top: 19px;
+}
+ .theme-style .control {
+	font-size: 18px;
+	position: relative;
+	display: block;
+	margin-bottom: 15px;
+	cursor: pointer;
+}
+
+.theme-style .control input {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+}
+/* Check mark */
+.theme-style .control__indicator:after {
+	position: absolute;
+	display: none;
+	content: '';
+}
+.theme-style .control__indicator {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 60px;
+}
+.light-color .control__indicator{
+  background: #e6e6e6;
+}
+.dark-color .control__indicator{
+  background: #292828;
+}
+
+.theme-style .control--radio .control__indicator {
+	border-radius: 50%;
+}
+
+/* Show check mark */
+.theme-style .control input:checked ~ .control__indicator:after {
+	display: block;
+}
+/* Radio button inner circle */
+.theme-style .control--radio .control__indicator:after {
+  top: 0;
+  left: 0;
+  padding: 16px 19px;
+  font-family: FontAwesome;
+  content: "\f00c";
+  color: #479ee8;
+  border-radius: 100%;
+  border: 2px solid;
+}
+
+/* Disabled state */
+.theme-style .control input:disabled ~ .control__indicator {
+	pointer-events: none;
+	opacity: .6;
+	background: #e6e6e6;
+}
+/*Switch*/
+.startup-switch-wrapper .switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 23px;
+}
+
+.startup-switch-wrapper .switch input {display:none;}
+
+.startup-switch-wrapper .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.startup-switch-wrapper .slider:before {
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.startup-switch-wrapper input:checked + .slider {
+  background-color: #2196F3;
+}
+
+.startup-switch-wrapper input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+.startup-switch-wrapper input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+
+.startup-switch-wrapper .slider.round {
+  border-radius: 34px;
+}
+
+.startup-switch-wrapper .slider.round:before {
+  border-radius: 50%;
+}
+.wallpaper-title {
+  font-size: 14px;
+  font-weight: 500;
+}
+.recent-wallpaper,
+.all-wallpaper{
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+}
+.recent-wallpaper .image,
+.all-wallpaper .image{
+  margin: 5px;
+  min-height: 80px;
+  background: #000;
+  border-radius: 2px;
+}
+.wallpaper-button{
+  margin-top:20px;
+}
+.wallpaper-button a{
+  margin-left: 15px;
+}
+
+.clear-browsing-settings .browsing-title,
+.download-wrapper-settings .download-title,
+.block-adds-wrapper .features,
+.appearance-wrapper .appearance{
+  margin-bottom: 20px;
+}
+.block-adds-wrapper .block-adds-title,
+.appearance-wrapper .appearance-switch-title{
+  font-size: 14px;
+  font-weight: 400;
+}
+.download-form-settings{
+  position: relative;
+}
+.download-form-settings input[type="text"]{
+  width: 100%;
+}
+.download-form-settings input[type="button"]{
+  position: absolute;
+  right: 0;
+}
+
+.clear-browsing-button button{
+  margin-right: 20px;
+}
+
+.go-to-browsing-settings{padding: 11px 0;}
+  .go-to-browsing-settings .go-to-browsing-button{
+    position: relative;
+  }
+  .go-to-browsing-settings .go-to-browsing-button a{
+    color:inherit;
+  }
+  .go-to-browsing-settings .go-to-browsing-button a i{
+    margin-right: 10px;
+    position: relative;
+    top: 2px;
+  }
+
+.slick-slide {
+    display: block;
+}
+/* Slick Slider */
+.slick-slider
+{
+    position: relative;
+
+    display: block;
+    box-sizing: border-box;
+
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+        touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list
+{
+    position: relative;
+
+    display: block;
+    overflow: hidden;
+
+    margin: 0;
+    padding: 0;
+}
+.slick-list:focus
+{
+    outline: none;
+}
+.slick-list.dragging
+{
+    cursor: pointer;
+    cursor: hand;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list
+{
+    -webkit-transform: translate3d(0, 0, 0);
+       -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+         -o-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+}
+
+.slick-track
+{
+    position: relative;
+    top: 0;
+    left: 0;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.slick-track:before,
+.slick-track:after
+{
+    display: table;
+
+    content: '';
+}
+.slick-track:after
+{
+    clear: both;
+}
+.slick-loading .slick-track
+{
+    visibility: hidden;
+}
+
+.slick-slide
+{
+    display: none;
+    float: left;
+
+    height: 100%;
+    min-height: 1px;
+}
+[dir='rtl'] .slick-slide
+{
+    float: right;
+}
+.slick-slide img
+{
+    display: block;
+}
+.slick-slide.slick-loading img
+{
+    display: none;
+}
+.slick-slide.dragging img
+{
+    pointer-events: none;
+}
+.slick-initialized .slick-slide
+{
+    display: block;
+}
+.slick-loading .slick-slide
+{
+    visibility: hidden;
+}
+.slick-vertical .slick-slide
+{
+    display: block;
+
+    height: auto;
+
+    border: 1px solid transparent;
+}
+.slick-arrow.slick-hidden {
+    display: none;
+}
+/* Arrows */
+.slick-prev,
+.slick-next
+{
+    font-size: 0;
+    line-height: 0;
+
+    position: absolute;
+    top: 50%;
+
+    display: block;
+
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+
+    cursor: pointer;
+
+    color: transparent;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+.slick-prev:hover,
+.slick-prev:focus,
+.slick-next:hover,
+.slick-next:focus
+{
+    color: transparent;
+    outline: none;
+    background: transparent;
+}
+.slick-prev:hover:before,
+.slick-prev:focus:before,
+.slick-next:hover:before,
+.slick-next:focus:before
+{
+    opacity: 1;
+}
+.slick-prev.slick-disabled:before,
+.slick-next.slick-disabled:before
+{
+    opacity: .25;
+}
+
+.slick-prev:before,
+.slick-next:before
+{
+    font-family: 'slick';
+    font-size: 20px;
+    line-height: 1;
+
+    opacity: .75;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #0a0a0a;
+    font-family: FontAwesome;
+}
+
+.slick-prev
+{
+    left: -25px;
+}
+[dir='rtl'] .slick-prev
+{
+    right: -25px;
+    left: auto;
+}
+.slick-prev:before
+{
+    content: '\f053';
+}
+[dir='rtl'] .slick-prev:before
+{
+    content: '\f054';
+}
+
+.slick-next
+{
+    right: -25px;
+}
+[dir='rtl'] .slick-next
+{
+    right: auto;
+    left: -25px;
+}
+.slick-next:before
+{
+    content: '\f054';
+}
+[dir='rtl'] .slick-next:before
+{
+    content: '\f053';
+}
+
+/* Dots */
+.slick-dotted.slick-slider
+{
+    margin-bottom: 30px;
+}
+
+.slick-dots
+{
+    position: absolute;
+    bottom: -25px;
+
+    display: block;
+
+    width: 100%;
+    padding: 0;
+    margin: 0;
+
+    list-style: none;
+
+    text-align: center;
+}
+.slick-dots li
+{
+    position: relative;
+
+    display: inline-block;
+
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+    padding: 0;
+
+    cursor: pointer;
+}
+.slick-dots li button
+{
+    font-size: 0;
+    line-height: 0;
+
+    display: block;
+
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+
+    cursor: pointer;
+
+    color: transparent;
+    border: 0;
+    outline: none;
+    background: transparent;
+}
+.slick-dots li button:hover,
+.slick-dots li button:focus
+{
+    outline: none;
+}
+.slick-dots li button:hover:before,
+.slick-dots li button:focus:before
+{
+    opacity: 1;
+}
+.slick-dots li button:before
+{
+    font-family: 'slick';
+    font-size: 6px;
+    line-height: 20px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 20px;
+    height: 20px;
+
+    content: '•';
+    text-align: center;
+
+    opacity: .25;
+    color: black;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.slick-dots li.slick-active button:before
+{
+    opacity: .75;
+    color: black;
 }
