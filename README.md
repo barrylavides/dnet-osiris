@@ -19,7 +19,7 @@ They can purchase anything available using Spyce, if they have different token t
 Is a store for decentralized apps. It could be any free and purchasable software such as games, utilities, office, and add-ons which consumes decentralized resources. With decenternet wallet connected, buying softwares using tokens will now become possible. DApps Store will create a sustainable economy for decentralized apps developer in Decenternet. Apps built in decenternet has an address which will help prevent piracy of softwares. Every transaction in DApps is recorded in a public ledger, and ownership of a app license is added in the blockchain.
 
 <h2>Plugins</h2>
-The browser will support traditional plugins and decentralized add-ons.
+The browser will support traditional plugins and decentralized add-ons..
 
 ## How To Use
 

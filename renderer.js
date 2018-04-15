@@ -1,3 +1,5 @@
+const electron = require('electron')
+const remote = electron.remote
 var nodeConsole = require('console');
 var _console = new nodeConsole.Console(process.stdout, process.stderr);
 
@@ -267,9 +269,17 @@ omnibox.addEventListener('keydown', loadSiteUrl);
 backBtn.addEventListener('click', backView);
 forwardBtn.addEventListener('click', forwardView);
 
-var activeIndex = $('.view-instance.active').index();
-document.getElementsByClassName('view-instance')[activeIndex].addEventListener('did-finish-load', showUrl);
-// view.addEventListener('did-finish-load', showUrl);
+$(function() {
+    var activeIndex = $('.view-instance.active').index();
+
+    _console.log(activeIndex);
+
+    _console.log(document.getElementsByClassName('view-instance')[0]);
+
+    document.getElementsByClassName('view-instance')[activeIndex].addEventListener('did-finish-load', showUrl);
+    // view.addEventListener('did-finish-load', showUrl);
+});
+
 
 fave.addEventListener('click', addBookmark);
 list.addEventListener('click', openPopUp);
@@ -287,3 +297,8 @@ $(document.body).on('click', '.nav-tabs-tab', switchTab);
 $(document.body).on('click', '.nav-tabs-close', closeTab);
 // Forward, back and refresh buttons on selected tab
 // Load selected bookmark on the selected tab
+
+
+let win = remote.getCurrentWindow();
+win.setDownloadSavePath('/Users/barry.lavides/Downloads/electron-files');
+
