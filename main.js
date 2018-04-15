@@ -1,8 +1,12 @@
 const electron = require('electron')
+
+require('electron-dl')();
+
 // Module to control application life.
 const app = electron.app
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow
+const ipcMain = electron.ipcMain
 
 const path = require('path')
 const url = require('url')
@@ -55,6 +59,17 @@ app.on('activate', function () {
         createWindow()
     }
 })
+
+electron.BrowserWindow.prototype.setDownloadSavePath = function (path) {
+    this.webContents.session.once('will-download', (event, item) => {
+        item.setSavePath(path + '/' + 'test.mp4');
+    });
+};
+
+// ipcMain.on('will-download', (event, data) => {
+//     data.item.setSavePath('/Users/barry.lavides/Downloads/electron-files/test.mp4')
+//     console.log('From main')
+// });
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
