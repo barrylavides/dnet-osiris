@@ -1,7 +1,5 @@
 const electron = require('electron')
 
-require('electron-dl')();
-
 // Module to control application life.
 const app = electron.app
 // Module to create native browser window.
@@ -9,6 +7,10 @@ const BrowserWindow = electron.BrowserWindow
 const dialog = electron.dialog
 const path = require('path')
 const url = require('url')
+const jsonfile = require('jsonfile');
+const dateFormat = require('dateformat');
+var download_history = path.join(__dirname, 'download_history.json');
+
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -59,8 +61,42 @@ app.on('activate', function () {
     }
 })
 
+function addDownloadHistory(data) {
+    jsonfile.readFile(download_history, function(err, file) {
+        var _date = dateFormat(new Date(), 'm/d/yyyy');
+        var dataObject = {};
+
+        if (file === undefined) {
+            dataObject[_date] = {
+                'files': [{
+                    'icon': '',
+                    'title': '',
+                    'status': '',
+                    'source': '',
+                    'action': 'show folder or retry'
+                }]
+            }
+        } else {
+            file[String(_date)]['files'].push({
+                'icon': '2',
+                'title': '2',
+                'status': '2',
+                'source': '2',
+                'action': 'show folder or retry'
+            })
+
+            dataObject = file;
+        }
+
+        jsonfile.writeFile(download_history, dataObject, function (err) {
+        })
+    });
+}
+
 electron.BrowserWindow.prototype.setDownloadSavePath = function (path) {
     this.webContents.session.once('will-download', (event, item) => {
+        addDownloadHistory();
+
         var savePath = dialog.showSaveDialog(mainWindow, {
             title: 'foo',
             defaultPath: path + '/' + item.getFilename()
