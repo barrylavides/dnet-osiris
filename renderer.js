@@ -9,6 +9,8 @@ var path = require('path');
 var uuid = require('uuid');
 var bookmarks = path.join(__dirname, 'bookmarks.json');
 
+var osiris_settings = path.join(__dirname, 'settings.json');
+
 var getElementById = function (id) {
     return document.getElementById(id);
 }
@@ -47,22 +49,39 @@ function loadSiteUrl (event) {
         let val = omnibox.value.toLowerCase();
         var url = '';
 
-        if (val.indexOf('http') < 0) {
-            url = 'http://'+ val;
+        switch(val){
+            case 'settings': {
+                console.dir('sulod');
+                document.getElementsByClassName('view-instance')[activeIndex].loadURL('settings.html');
+                // Update tab title based on the loaded site
+                document.getElementsByClassName('view-instance')[activeIndex].addEventListener('did-finish-load', function() {
+                    let title = document.getElementsByClassName('view-instance')[activeIndex].getTitle().split(' ')[0];
+
+                    $('span#tab'+(activeIndex+1)+' i.nav-tabs-title').text('Settings');
+                });
+                break;
+            }
+            default: {
+                if (val.indexOf('http') < 0) {
+                    url = 'http://'+ val;
+                }
+
+                if (val.indexOf('.com') < 0) {
+                    url = url + '.com'
+                }
+
+                document.getElementsByClassName('view-instance')[activeIndex].loadURL(url)
+
+                // Update tab title based on the loaded site
+                document.getElementsByClassName('view-instance')[activeIndex].addEventListener('did-finish-load', function() {
+                    let title = document.getElementsByClassName('view-instance')[activeIndex].getTitle().split(' ')[0];
+
+                    $('span#tab'+(activeIndex+1)+' i.nav-tabs-title').text(title);
+                });
+            }
         }
 
-        if (val.indexOf('.com') < 0) {
-            url = url + '.com'
-        }
-
-        document.getElementsByClassName('view-instance')[activeIndex].loadURL(url)
-
-        // Update tab title based on the loaded site
-        document.getElementsByClassName('view-instance')[activeIndex].addEventListener('did-finish-load', function() {
-            let title = document.getElementsByClassName('view-instance')[activeIndex].getTitle().split(' ')[0];
-
-            $('span#tab'+(activeIndex+1)+' i.nav-tabs-title').text(title);
-        });
+        
     }
 }
 
@@ -194,7 +213,7 @@ function addTab (event) {
     // Create new webview tag and increment view id
     var webviewTag = document.createElement('webview');
     webviewTag.className = 'view-instance active';
-    webviewTag.src = 'http://www.google.com/';
+    webviewTag.src = 'default.html'; //loading of URL updated to default from google.com
     var newIndex = lastIndex + 1;
     webviewTag.id = 'view'+ newIndex;
 
@@ -260,6 +279,41 @@ function defaultSettings(){
 
   $(element).insertBefore('#nav-tabs-add');
 }
+
+function loadStartupSettings(){
+    jsonfile.readFile(osiris_settings, function(err, startup) {
+        //console.dir(startup.osirisStartUp[0]['startPage']);
+        switch(startup.osirisStartUp[0]['selected']){
+            case "1": {
+                // Create new webview tag and increment view id
+                // Remove active class from the previous view
+                var webviewTag = document.getElementById('view2');
+                webviewTag.src = 'default.html'; //loading of URL updated to default from google.com
+                break;
+            }
+            case "2": {
+                var webviewTag = document.getElementById('view2');
+                webviewTag.src = startup.osirisStartUp[0]['lastBrowseURL'];
+
+                omnibox.value = webviewTag.src;
+                break;
+            }
+            case "3": {
+
+                var webviewTag = document.getElementById('view2');
+                var specPageSelected = startup.osirisStartUp[0]['specificPagesSelected'];
+                webviewTag.src = startup.osirisStartUp[0]['specificPagesList'][0][specPageSelected];
+
+                omnibox.value = webviewTag.src;
+                break;
+            }
+            default: {
+                console.dir('Undefined selected Startup Page');
+                break;
+            }
+        }
+    });
+}
 // ------------------------------
 // --           EVENTS
 // ------------------------------
@@ -278,6 +332,8 @@ $(function() {
 
     document.getElementsByClassName('view-instance')[activeIndex].addEventListener('did-finish-load', showUrl);
     // view.addEventListener('did-finish-load', showUrl);
+
+    loadStartupSettings();
 });
 
 

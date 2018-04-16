@@ -1,0 +1,16 @@
+{
+	"osirisStartUp" : [
+		{
+			"selected" : "2",
+			"startPage" : "default.html",
+			"lastBrowseURL" : "https://www.google.com/",
+			"specificPagesSelected" : "decenternet",
+			"specificPagesList" : [
+				{
+					"google" : "https://www.google.com/",
+					"decenternet" : "https://www.decenternet.com/"
+				}
+			]
+		}
+	]
+}
