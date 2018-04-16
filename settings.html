@@ -172,6 +172,102 @@
           <!---->
         </div>
       </div><!--close block ads list exceptions popup-->
+      <div class="startup-overlay-wrapper" style="display:none;"><!--startup overlay form popup-->
+        <div class="startup-overlay-form">
+          <div class="row">
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+              <h2>Starup pages</h2>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+              <i id="close-startup-form" class="fa fa-times" aria-hidden="true"></i>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <ul>
+                <li>
+                  <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                      <img src="" alt="">
+                      <label class="startup-url-label">Google Search</label>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+                       <input type="text" name="" value="https://www.google.com/search?client=opera&q=goo&sourceid=opera&ie=UTF-8&oe=UTF-8">
+                        <i id="startup-new-page-close" class="fa fa-times" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                      <img src="" alt="">
+                      <span>Add a new page</span>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+                      <input type="text" name="" value="">
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="row p-0 startup-button-form">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+              <button type="button" name="button">Use current page</button>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+              <button type="button" name="button" class="startup-ok mr-3" style="margin-right:6px;">Ok</button><button type="button" name="button" class="startup-cancel">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bookmarks-import-overlay-wrapper" style="display:none;"><!--bookmark overlay form popup-->
+        <div class="bookmarks-import-overlay-form">
+          <div class="row">
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+              <h2>Import bookmark and settings</h2>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+              <i id="close-bookmark-settings-form" class="fa fa-times" aria-hidden="true"></i>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <span>From: </span>
+              <select class="" name="">
+                <option value="[object Object]">Google Search</option>
+                <option value="[object Object]">Yahoo</option>
+                <option value="[object Object]">DuckDuckGo</option>
+                <option value="[object Object]">Amazon</option>
+                <option value="[object Object]">Bing</option>
+                <option value="[object Object]">Wikipidia</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <h4>Select items to import</h4>
+              <label>
+                <input type="checkbox" name="" value=""><span>Browsing history</span>
+              </label>
+              <label>
+                <input type="checkbox" name="" value=""><span>Favorites/Bookmarks</span>
+              </label>
+              <label>
+                <input type="checkbox" name="" value=""><span>Save Password</span>
+              </label>
+              <label>
+                <input type="checkbox" name="" value=""><span>Cookies</span>
+              </label>
+            </div>
+          </div>
+          <div class="row bookmarks-import-button-form">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-right">
+              <button type="button" name="button" class="bookmark-import" style="margin-right:6px;">Ok</button><button type="button" name="button" class="bookmark-cancel">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
       <!--Left settings-->
       <div class="left-layout-settings">
         <div class="sidebar-header">
@@ -264,7 +360,7 @@
                     <input type="radio" name="startup-radio-select">
                     <span>
                       <label for="startup-show-pages">Open a specific page or set of pages</label>
-                      <a is="action-link" id="startup-set-pages" tabindex="0" role="link">Set pages</a>
+                      <a style="cursor:pointer;" is="action-link" id="startup-set-pages" tabindex="0" role="link">Set pages</a>
                     </span>
                   </div>
                 </div>
@@ -279,7 +375,7 @@
                   <p>
                     The default browser is currently osiris.
                   </p>
-                  <button class="default-browser-button">Import bookmarks and setting</button>
+                  <button id="default-browser-button-bookmars">Import bookmarks and setting</button>
                 </div>
               </div>
             </div>
@@ -441,8 +537,115 @@
             </div>
           </div>
         </div>
-        <div class="tab-content-item" data-filter="2">
-          tab 2
+        <div class="browser-wrapper tab-content-item" data-filter="2">
+          <div class="row"><!--row for startup-->
+            <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+              <div id="browser-synchronization-section">
+                <h2 class="title">Synchronization</h2>
+                <div class="content">
+                  <div>
+                   <button type="button" name="button">Sign In</button>
+                    <span>
+                      <a href="#">Learn more</a>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row"><!--row for startup-->
+            <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+              <div id="browser-startup-section">
+                <h2 class="title">On startup</h2>
+                <div class="content">
+                  <div>
+                    <input type="radio" name="startup-radio-select">
+                    <span>
+                      <label for="startup-radio">Open the startpage</label>
+                    </span>
+                  </div>
+                  <div>
+                    <input type="radio" name="startup-radio-select">
+                    <span>
+                      <label for="startup-radio">Continue where i left off</label>
+                    </span>
+                  </div>
+                  <div>
+                    <input type="radio" name="startup-radio-select">
+                    <span>
+                      <label for="startup-show-pages">Open a specific page or set of pages</label>
+                      <a style="cursor:pointer;" is="action-link" id="browser-startup-set-pages" tabindex="0" role="link">Set pages</a>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row"><!--row for startup-->
+            <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+              <div id="browser-search-section">
+                <h2 class="title">Search</h2>
+                <div class="content">
+                  <div>
+                    <p>Set which search engine is used when searching from the combined search and address bar</p>
+                  </div>
+                  <div>
+                   <select class="" name="">
+                     <option value="[object Object]">Google Search</option>
+                     <option value="[object Object]">Yahoo</option>
+                     <option value="[object Object]">DuckDuckGo</option>
+                     <option value="[object Object]">Amazon</option>
+                     <option value="[object Object]">Bing</option>
+                     <option value="[object Object]">Wikipidia</option>
+                   </select>
+                   <button type="button" name="button">Manage search engine..</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row"><!--browser default section-->
+            <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+              <div id="browser-default-section">
+                <h2 class="title">Default Browser</h2>
+                <div class="content">
+                  <div>
+                    <p>The default browser is currently Osiris.</p>
+                  </div>
+                  <div>
+                   <button type="button" name="button">Import Bookmarks and settings..</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row"><!--browser default section-->
+            <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+              <div id="browser-reset-osiris-section">
+                <h2 class="title">Reset Opera</h2>
+                <div class="content">
+                  <div>
+                   <button type="button" name="button">Reset browser setting..</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row"><!--browser default section-->
+            <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+              <div id="browser-default-section">
+                <h2 class="title">Default Browser</h2>
+                <div class="content">
+                  <div>
+                    <p>The default browser is currently Osiris.</p>
+                  </div>
+                  <div>
+                   <button type="button" name="button">Import Bookmarks and settings..</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="tab-content-item" data-filter="3">
           tab 3

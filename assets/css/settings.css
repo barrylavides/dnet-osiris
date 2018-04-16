@@ -142,3 +142,95 @@
 .manage-list-content ul{
   list-style: none;
 }
+/*Startup overlay form*/
+.startup-overlay-wrapper{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.23);
+  z-index: 999;
+}
+.startup-overlay-wrapper .startup-overlay-form{
+  min-width: 523px;
+  max-width:60%;
+  margin: 10% auto;
+  background: #fff;
+  padding: 21px;
+  border-radius: 4px;
+  box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.25);
+}
+.startup-overlay-wrapper .startup-overlay-form h2{
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+.startup-overlay-wrapper .startup-overlay-form .startup-button-form{
+  background: #f5f5f5;
+  border-top: 1px solid #dddddd;
+  padding: 20px 15px;
+  margin: 0 -20px -20px -20px;
+}
+.startup-overlay-wrapper .startup-overlay-form ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 15px;
+}
+.startup-overlay-wrapper .startup-overlay-form ul li{
+  padding: 10px;
+  background: #dddddd;
+}
+.startup-overlay-wrapper .startup-overlay-form ul li:last-child{
+  background: transparent;
+}
+.startup-overlay-wrapper .startup-overlay-form label.startup-url-label {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   line-height: 16px;     /* fallback */
+   max-height: 15px;      /* fallback */
+   -webkit-line-clamp: 2; /* number of lines to show */
+   -webkit-box-orient: vertical;
+}
+.startup-overlay-wrapper .startup-overlay-form input[type="text"]{
+  width: 90%;
+}
+.startup-overlay-wrapper .startup-overlay-form li:last-child input[type="text"]{
+  width: 95%;
+}
+/*Startup overlay form*/
+.bookmarks-import-overlay-wrapper{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.23);
+  z-index: 999;
+}
+.bookmarks-import-overlay-wrapper .bookmarks-import-overlay-form{
+  width: 523px;
+  margin: 10% auto;
+  background: #fff;
+  padding: 21px;
+  border-radius: 4px;
+  box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.25);
+}
+.bookmarks-import-overlay-wrapper .bookmarks-import-overlay-form h2{
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+.bookmarks-import-overlay-wrapper .bookmarks-import-overlay-form label{
+  display: block;
+}
+.bookmarks-import-overlay-wrapper .bookmarks-import-overlay-form .bookmarks-import-button-form{
+  background: #f5f5f5;
+  border-top: 1px solid #dddddd;
+  padding: 20px 15px;
+  margin: 0 -20px -20px -20px;
+}
