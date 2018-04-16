@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Osiris Browser</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/sidebar-widget.css">
+    <link rel="stylesheet" href="assets/css/history-tab.css">
+  </head>
+  <body style="background:url('assets/img/startup-background.jpg') no-repeat center;background-size:cover;min-height: 100vh;overflow-x: hidden;">
+    <!--Modal form-->
+    <div  class="settings-popup-button">
+      <div id="show-setting-button">
+          <i title="Easy setup" class="fa fa-tasks" aria-hidden="true"></i>
+      </div>
+      <div class="transparent-background">
+      </div>
+  	  <div class="startup-pop-up-settings">
+        <div class="row">
+          <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+            <h1 class="title">Easy Setup</h1>
+          </div>
+          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text text-right pb-4">
+            <i id="close-settings" class="fa fa-times" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="startup-separator pt-3 pb-3"></div>
+          </div>
+        </div>
+        <div class="row theme-wrapper"><!--Theme-->
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="theme-color">
+                <h1 class="title">Theme</h1>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="light-color theme-style">
+              <label class="control control--radio">
+                <span>Light</span>
+                <input type="radio" name="selected-item" checked="checked">
+                <div class="control__indicator"></div>
+              </label>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="dark-color  theme-style">
+              <label class="control control--radio">
+                <span>Dark</span>
+            		<input type="radio" name="selected-item"/>
+            		<div class="control__indicator"></div>
+            	</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="startup-separator pt-3 pb-3"></div>
+          </div>
+        </div>
+        <div class="row wallpaper-wrapper startup-switch-wrapper"><!--Wallpaper-->
+          <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+            <div class="wallpaper">
+                <h1 class="title">Wallpaper</h1>
+            </div>
+          </div>
+          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text text-right pb-4">
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pb-4">
+            <h2 class="wallpaper-title">All Wallpaper</h2>
+            <div class="all-wallpaper">
+              <div class="wallpaper-items">
+                <div style="width: 103px;"><div class="image" style="background:url('assets/img/startup-background.jpg') no-repeat center;background-size:cover;"></div></div>
+                <div style="width: 103px;"><div class="image" style="background:url('assets/img/startup-background.jpg') no-repeat center;background-size:cover;"></div></div>
+                <div style="width: 103px;"><div class="image" style="background:url('assets/img/startup-background.jpg') no-repeat center;background-size:cover;"></div></div>
+                <div style="width: 103px;"><div class="image" style="background:url('assets/img/startup-background.jpg') no-repeat center;background-size:cover;"></div></div>
+                <div style="width: 103px;"><div class="image" style="background:url('assets/img/startup-background.jpg') no-repeat center;background-size:cover;"></div></div>
+                <div style="width: 103px;"><div class="image" style="background:url('assets/img/startup-background.jpg') no-repeat center;background-size:cover;"></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pt-4">
+            <h2 class="wallpaper-title">Recent Wallpaper</h2>
+            <div class="recent-wallpaper">
+              <div class="wallpaper-items">
+                <div><div class="image" style="background:url('assets/img/startup-background.jpg') no-repeat center;background-size:cover;"></div></div>
+                <div><div class="image" style="background:url('assets/img/startup-background.jpg') no-repeat center;background-size:cover;"></div></div>
+                <div><div class="image" style="background:url('assets/img/startup-background.jpg') no-repeat center;background-size:cover;"></div></div>
+                <div><div class="image" style="background:url('assets/img/startup-background.jpg') no-repeat center;background-size:cover;"></div></div>
+                <div><div class="image" style="background:url('assets/img/startup-background.jpg') no-repeat center;background-size:cover;"></div></div>
+                <div><div class="image" style="background:url('assets/img/startup-background.jpg') no-repeat center;background-size:cover;"></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pt-4">
+            <div class="wallpaper-button">
+              <button class="add-more-wallpaper">Add you wallpaper</button> <a href="#">Get more wallpaper</a>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="startup-separator pt-3 pb-3"></div>
+          </div>
+        </div>
+        <div class="row appearance-wrapper startup-switch-wrapper"><!--Appearance-->
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="appearance">
+                <h1 class="title">Appearance</h1>
+            </div>
+          </div>
+
+          <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+            <div class="show-bookmarks">
+                <h1 class="appearance-switch-title">Show bookmarks bar</h1>
+            </div>
+          </div>
+          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text text-right pb-4">
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+            <div class="show-speed-dial">
+                <h1 class="appearance-switch-title">Show speed dial suggestion</h1>
+            </div>
+          </div>
+          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text text-right pb-4">
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+            <div class="pin-sidebar">
+                <h1 class="appearance-switch-title">Pin Sidebar</h1>
+            </div>
+          </div>
+          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text text-right pb-4">
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </div>
+
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="startup-separator pt-3 pb-3"></div>
+        </div>
+      </div>
+      <div class="row block-adds-wrapper startup-switch-wrapper"><!--Features-->
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="features">
+              <h1 class="title">Features</h1>
+          </div>
+        </div>
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+          <div class="block-adds">
+              <h1 class="block-adds-title">Block add</h1>
+          </div>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text text-right pb-4">
+          <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="startup-separator pt-3 pb-3"></div>
+        </div>
+      </div>
+      <div class="row download-wrapper-settings"><!--Features-->
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="download-title">
+              <h1 class="title">Downloads</h1>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="download-form-settings">
+              <input type="text" name="" value="C:\Users\Downloads"><input type="button" value="Change..">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="startup-separator pt-3 pb-3"></div>
+        </div>
+      </div>
+      <div class="row clear-browsing-settings"><!--Features-->
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="browsing-title">
+              <h1 class="title">Clear Browsing Data</h1>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="clear-browsing-button">
+              <button>Clear browsing data...</button><a href="#">Learn more</a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="startup-separator pt-3 pb-3"></div>
+        </div>
+      </div>
+      <div class="row bookmarks-settings"><!--Features-->
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="bookmarks-title">
+              <h1 class="title">Import passwords and bookmarks</h1>
+              <p>Copy passwords, history, cookies and favorate pages from another browser</p>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="bookmarks-button">
+              <button>Import bookmarks and settings..</button>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="startup-separator pt-3 pb-3"></div>
+        </div>
+      </div>
+      <div class="row go-to-browsing-settings"><!--Features-->
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="go-to-browsing-button">
+              <a href="#"><i class="fa fa-cog" aria-hidden="true"></i>Go to browsing settings</a>
+          </div>
+        </div>
+      </div>
+  	</div>
+    <!--End of modal form setting-->
+    <div class="speed-dial-wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-push-2 col-md-8 col-lg-push-2 col-lg-8">
+            <div id="google-search">
+              <ul>
+                <li class="google-logo">
+                  <figure>
+                    <img src="assets/img/google-logo.png" alt="Google">
+                  </figure>
+                </li>
+                <li class="google-search-bar">
+                  <input type="text" name="" value="" placeholder="Search the web"><button type="button" name="button"><i title="Refresh" class="fa fa-search" aria-hidden="true"></i></button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container start-page-list-padding">
+        <div class="row">
+          <!---List of starting site-->
+          <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+            <a href="" title="Facebook">
+              <div class="start-page-list text-center">
+                <div class="list-site-background" style="background:url('assets/img/facebook.jpg') no-repeat center;">
+                </div>
+                <h1>Facebook.com</h1>
+              </div>
+            </a>
+          </div>
+          <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+            <a href="" title="Facebook">
+              <div class="start-page-list text-center">
+                <div class="list-site-background" style="background:url('assets/img/facebook.jpg') no-repeat center;">
+                </div>
+                <h1>Facebook.com</h1>
+              </div>
+            </a>
+          </div>
+          <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+            <a href="" title="Facebook">
+              <div class="start-page-list text-center">
+                <div class="list-site-background" style="background:url('assets/img/facebook.jpg') no-repeat center;">
+                </div>
+                <h1>Facebook.com</h1>
+              </div>
+            </a>
+          </div>
+          <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+            <a href="" title="Facebook">
+              <div class="start-page-list text-center">
+                <div class="list-site-background" style="background:url('assets/img/facebook.jpg') no-repeat center;">
+                </div>
+                <h1>Facebook.com</h1>
+              </div>
+            </a>
+          </div>
+          <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+            <a href="" title="Facebook">
+              <div class="start-page-list text-center">
+                <div class="list-site-background" style="background:url('assets/img/facebook.jpg') no-repeat center;">
+                </div>
+                <h1>Facebook.com</h1>
+              </div>
+            </a>
+          </div>
+          <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+            <a href="" class="additional-site">
+              <div class="start-page-list text-center">
+                <div class="list-site-background" style="background:rgba(0, 0, 0, 0.42);position:relative;">
+                  <div class="add-site-button">
+                    <span>+ Add a site</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <!--End list of starting site--->
+        </div>
+      </div>
+      <div class="container suggestion-list-padding">
+        <div class="row pt-4 pb-4">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h2 class="suggestion-title">Suggestions</h2>
+          </div>
+        </div>
+        <div class="row">
+          <!---List of suggestion site--->
+          <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+            <a href="" title="Facebook">
+              <div class="start-page-list text-center">
+                <div class="list-site-background" style="background:url('assets/img/facebook.jpg') no-repeat center;">
+                </div>
+                <h1>Facebook.com</h1>
+              </div>
+            </a>
+          </div>
+          <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+            <a href="" title="Facebook">
+              <div class="start-page-list text-center">
+                <div class="list-site-background" style="background:url('assets/img/facebook.jpg') no-repeat center;">
+                </div>
+                <h1>Facebook.com</h1>
+              </div>
+            </a>
+          </div>
+          <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+            <a href="" title="Facebook">
+              <div class="start-page-list text-center">
+                <div class="list-site-background" style="background:url('assets/img/facebook.jpg') no-repeat center;">
+                </div>
+                <h1>Facebook.com</h1>
+              </div>
+            </a>
+          </div>
+          <!--End suggestion site--->
+        </div>
+      </div>
+	  </div>
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="assets/js/global-script.js"></script>
+    <script>
+      require('./renderer.js')
+    </script>
+  </body>
+</html>
