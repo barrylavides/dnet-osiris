@@ -49,39 +49,22 @@ function loadSiteUrl (event) {
         let val = omnibox.value.toLowerCase();
         var url = '';
 
-        switch(val){
-            case 'settings': {
-                console.dir('sulod');
-                document.getElementsByClassName('view-instance')[activeIndex].loadURL('settings.html');
-                // Update tab title based on the loaded site
-                document.getElementsByClassName('view-instance')[activeIndex].addEventListener('did-finish-load', function() {
-                    let title = document.getElementsByClassName('view-instance')[activeIndex].getTitle().split(' ')[0];
-
-                    $('span#tab'+(activeIndex+1)+' i.nav-tabs-title').text('Settings');
-                });
-                break;
-            }
-            default: {
-                if (val.indexOf('http') < 0) {
-                    url = 'http://'+ val;
-                }
-
-                if (val.indexOf('.com') < 0) {
-                    url = url + '.com'
-                }
-
-                document.getElementsByClassName('view-instance')[activeIndex].loadURL(url)
-
-                // Update tab title based on the loaded site
-                document.getElementsByClassName('view-instance')[activeIndex].addEventListener('did-finish-load', function() {
-                    let title = document.getElementsByClassName('view-instance')[activeIndex].getTitle().split(' ')[0];
-
-                    $('span#tab'+(activeIndex+1)+' i.nav-tabs-title').text(title);
-                });
-            }
+        if (val.indexOf('http') < 0) {
+            url = 'http://'+ val;
         }
 
-        
+        if (val.indexOf('.com') < 0) {
+            url = url + '.com'
+        }
+
+        document.getElementsByClassName('view-instance')[activeIndex].loadURL(url)
+
+        // Update tab title based on the loaded site
+        document.getElementsByClassName('view-instance')[activeIndex].addEventListener('did-finish-load', function() {
+            let title = document.getElementsByClassName('view-instance')[activeIndex].getTitle().split(' ')[0];
+
+            $('span#tab'+(activeIndex+1)+' i.nav-tabs-title').text(title);
+        });
     }
 }
 
