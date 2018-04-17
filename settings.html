@@ -296,7 +296,7 @@
         <div class="setting-search-bar">
           <input type="text" placeholder="Search settings">
         </div>
-        <div class="basic-wrapper tab-content-item data-active" data-filter="1" style="overflow-y:scroll;overflow-x:hidden;"><!--Basic wrapper-->
+        <div class="basic-wrapper-tab tab-content-item data-active" data-filter="1" style="overflow-y:scroll;overflow-x:hidden;"><!--Basic wrapper-->
           <div class="row"><!--row for block adds-->
             <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
               <div id="block-adds-section">
@@ -537,7 +537,7 @@
             </div>
           </div>
         </div>
-        <div class="browser-wrapper tab-content-item" data-filter="2">
+        <div class="browser-wrapper-tab tab-content-item" data-filter="2">
           <div class="row"><!--row for startup-->
             <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
               <div id="browser-synchronization-section">
@@ -581,7 +581,7 @@
               </div>
             </div>
           </div>
-          <div class="row"><!--row for startup-->
+          <div class="row"><!--row for search-->
             <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
               <div id="browser-search-section">
                 <h2 class="title">Search</h2>
@@ -619,10 +619,10 @@
               </div>
             </div>
           </div>
-          <div class="row"><!--browser default section-->
+          <div class="row"><!--browser reset section-->
             <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
               <div id="browser-reset-osiris-section">
-                <h2 class="title">Reset Opera</h2>
+                <h2 class="title">Reset Osiris</h2>
                 <div class="content">
                   <div>
                    <button type="button" name="button">Reset browser setting..</button>
@@ -631,24 +631,684 @@
               </div>
             </div>
           </div>
-          <div class="row"><!--browser default sections-->
+          <div class="row"><!--network sections-->
             <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
-              <div id="browser-default-section">
-                <h2 class="title">Default Browser</h2>
+              <div id="browser-network-section">
+                <h2 class="title">Network</h2>
                 <div class="content">
                   <div>
-                    <p>The default browser is currently Osiris.</p>
+                    <p>Opera is using your computer's system proxy settings to connect to the network</p>
                   </div>
                   <div>
-                   <button type="button" name="button">Import Bookmarks and settings..</button>
+                   <button type="button" name="button">Change proxy settings</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row"><!--Languages sections-->
+            <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+              <div id="browser-language-section">
+                <h2 class="title">Languages</h2>
+                <div class="content">
+                  <div>
+                    <p>Select user interface Language</p>
+                  </div>
+                  <div>
+                   <select class="input-medium languages-list">
+                     <option>Bangla</option>
+                     <option>Belarusian</option>
+                     <option>Bulgarian</option>
+                     <option>Catalan</option>
+                     <option>Chinese</option>
+                   </select>
+                  </div>
+                  <div>
+                    <p>Change the default spell check dictionary or add new dictionaries</p>
+                  </div>
+                  <div>
+                   <button type="button" name="button">Dictionaries</button>
+                  </div>
+                  <div>
+                    <p>Specify your preferred languages for webpages</p>
+                  </div>
+                  <div>
+                   <button type="button" name="button">Preferred languages</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row"><!--Download sections-->
+            <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+              <div id="browser-downloads-section">
+                <h2 class="title">Downloads</h2>
+                <div class="content">
+                    <div class="">Download location:
+                      <span>
+                        <input type="text" value="C:\Users\Downloads"><button class="download-button">Change</button>
+                      </span>
+                    </div>
+                    <div>
+                      <input type="checkbox">
+                      <span>
+                        <label for="privacy-download">Ask where to save each file before downloading</label>
+                      </span>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row"><!--Shortcuts sections-->
+            <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+              <div id="browser-downloads-section">
+                <h2 class="title">Shortcuts</h2>
+                <div class="content">
+                  <div>
+                    <input type="checkbox">
+                    <span>
+                      <label for="downloads-pages">Enable mouse gestures</label>
+                      <a style="cursor:pointer;" is="action-link" tabindex="0" role="link">Learn more</a>
+                    </span>
+                  </div>
+                  <div>
+                    <input type="checkbox">
+                    <span>
+                      <label for="downloads-pages">Enable rocker gesture</label>
+                      <a style="cursor:pointer;" is="action-link" tabindex="0" role="link">Learn more</a>
+                    </span>
+                  </div>
+                  <div>
+                    <input type="checkbox">
+                    <span>
+                      <label for="downloads-pages">Enable advanced keyboard shortcuts</label>
+                      <a style="cursor:pointer;" is="action-link" tabindex="0" role="link">Learn more</a>
+                    </span>
+                  </div>
+                  <div>
+                   <button type="button" name="button">Configure shortcuts</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row"><!--Personal news sections-->
+            <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+              <div id="browser-personal-news-section">
+                <h2 class="title">Personal news</h2>
+                <div class="content">
+                  <div>
+                    <span>Check my sources for new content</span>
+                    <select class="input-medium personal-news-list">
+                      <option>never</option>
+                      <option>every 5 minutes</option>
+                      <option>every 15 minutes</option>
+                      <option>every hour</option>
+                      <option>every 3 hours</option>
+                      <option>every 6 hours</option>
+                    </select>
+                  </div>
+                  <div>
+                    <input type="checkbox" name="personal-news-checkbox-select">
+                    <span>
+                      <label for="personal-news-pages">Show available news feeds on address bar</label>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row"><!--User interface sections-->
+            <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+              <div id="browser-user-interface-section">
+                <h2 class="title">User interface</h2>
+                <div class="content">
+                  <div>
+                    <input type="checkbox">
+                    <span>
+                      <label for="user-interface-pages">Show the bookmarks bar</label>
+                      <a style="cursor:pointer;" is="action-link" tabindex="0" role="link">Learn more</a>
+                    </span>
+                  </div>
+                  <div>
+                    <input type="checkbox">
+                    <span>
+                      <label for="user-interface-pages">Show the bookmarks bar</label>
+                    </span>
+                  </div>
+                  <div>
+                    <input type="checkbox">
+                    <span>
+                      <label for="user-interface-pages">Enable dark theme</label>
+                    </span>
+                  </div>
+                  <div>
+                    <input type="checkbox">
+                    <span>
+                      <label for="user-interface-pages">Show tab previews</label>
+                    </span>
+                  </div>
+                  <div>
+                    <input type="checkbox">
+                    <span>
+                      <label for="user-interface-pages">Cycle tabs in most recently used order</label>
+                    </span>
+                  </div>
+                  <div>
+                    <input type="checkbox">
+                    <span>
+                      <label for="user-interface-pages">Enable the search pop-up when selecting text</label>
+                    </span>
+                  </div>
+                  <div>
+                    <input type="checkbox">
+                    <span>
+                      <label for="user-interface-pages">On text selection convert currency to</label>
+                    </span>
+                    <select>
+                      <option>PHP</option>
+                      <option>USD</option>
+                    <select>
+                    <a href="#">Learn more</a>
+                  </div>
+                  <div>
+                    <input type="checkbox">
+                    <span>
+                      <label for="user-interface-pages">Enable the search pop-up when selecting text</label>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row"><!--Wallpapers news sections-->
+            <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+              <div id="browser-wallpapers-section">
+                <h2 class="title">Wallpapers</h2>
+                <div class="content">
+                  <div class="wallpaper-slider">
+                    <div class="wallpaper-items-settings">
+                      <div style="width: 103px;"><div class="image" style="background:url('assets/img/startup-background.jpg') no-repeat center;background-size:cover;"></div></div>
+                      <div style="width: 103px;"><div class="image" style="background:url('assets/img/startup-background.jpg') no-repeat center;background-size:cover;"></div></div>
+                      <div style="width: 103px;"><div class="image" style="background:url('assets/img/startup-background.jpg') no-repeat center;background-size:cover;"></div></div>
+                      <div style="width: 103px;"><div class="image" style="background:url('assets/img/startup-background.jpg') no-repeat center;background-size:cover;"></div></div>
+                      <div style="width: 103px;"><div class="image" style="background:url('assets/img/startup-background.jpg') no-repeat center;background-size:cover;"></div></div>
+                      <div style="width: 103px;"><div class="image" style="background:url('assets/img/startup-background.jpg') no-repeat center;background-size:cover;"></div></div>
+                      <div style="width: 103px;"><div class="image" style="background:url('assets/img/startup-background.jpg') no-repeat center;background-size:cover;"></div></div>
+                      <div style="width: 103px;"><div class="image" style="background:url('assets/img/startup-background.jpg') no-repeat center;background-size:cover;"></div></div>
+                    </div>
+                  </div>
+                  <div class="">
+                       <button type="button" name="button">Get more wallpaper</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row"><!--Sidebar sections-->
+            <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+              <div id="browser-sidebar-section">
+                <h2 class="title">Sidebar</h2>
+                <div class="content">
+                  <div>
+                    <input type="checkbox">
+                    <span>
+                      <label>Pin sidebar</label>
+                    </span>
+                  </div>
+                  <div class="">
+                       <button type="button" name="button">Get more wallpaper</button>
+                  </div>
+                  <div>
+                    <input type="checkbox">
+                    <span>
+                      <label>Enable notification badges for messengers</label>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row"><!--Start page sections-->
+            <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+              <div id="browser-start-page-section">
+                <h2 class="title">Start page</h2>
+                <div class="content">
+                  <div>
+                    <input type="checkbox">
+                    <span>
+                      <label>Show Speed Dial suggestions</label>
+                    </span>
+                  </div>
+                  <div>
+                    <input type="checkbox">
+                    <span>
+                      <label>Adjust Speed Dial animations for slower hardware</label>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row"><!--Start page sections-->
+            <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+              <div id="browser-battery-saver-section">
+                <h2 class="title">Battery saver</h2>
+                <div class="content">
+                  <div class="">
+                    <p>Save battery and browse up to 50% longer. <a href="#">Learn more</a></p>
+                  </div>
+                  <div>
+                    <input type="checkbox">
+                    <span>
+                      <label>Enable battery saver</label>
+                    </span>
+                  </div>
+                  <div>
+                    <input type="checkbox">
+                    <span>
+                      <label>Save battery automatically</label>
+                    </span>
+                  </div>
+                  <div>
+                    <input type="checkbox">
+                    <span>
+                      <label>Always show battery icon on toolbar</label>
+                    </span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="tab-content-item" data-filter="3">
-          tab 3
+        <div class="website-wrapper-tab tab-content-item" data-filter="3">
+          <div class="row"><!---->
+            <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+              <div id="website-display-section">
+                <h2 class="title">Display</h2>
+                <div class="content">
+                  <div>
+                  <label>Font size:</label>
+                  <select class="" name="">
+                    <option>Very small</option>
+                    <option>Small</option>
+                    <option>Medium</option>
+                    <option>Large</option>
+                    <option>Very large</option>
+                  </select>
+                   <button type="button" name="button">Customize fonts..</button>
+                  </div>
+                  <div>
+                  <label>Page zoom:</label>
+                  <select class="" name="">
+                    <option>25%</option>
+                    <option>33%</option>
+                    <option>50%</option>
+                    <option>67%</option>
+                    <option>75%</option>
+                  </select>
+                   <button type="button" name="button">Manage exception..</button>
+                   <a href="#">Learn more</a>
+                  </div>
+                  <div>
+                    <label>
+                      <input type="checkbox" name="" value="">
+                      <span>Pressing Tab on a webpage highlights all links, as well as form fields</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row"><!---->
+            <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+              <div id="website-image-section">
+                <h2 class="title">Images</h2>
+                <div class="content">
+                  <div>
+                    <label>
+                      <input type="radio" name="" value="">
+                      <span>Show all images (recommended)</span>
+                    </label>
+                  </div>
+                  <div>
+                    <label>
+                      <input type="radio" name="" value="">
+                      <span>Do not show any images</span>
+                    </label>
+                  </div>
+                  <div>
+                    <button type="button" name="button">Manage exception..</button>
+                    <a href="#">Learn more</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row"><!---->
+            <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+              <div id="website-javaScript-section">
+                <h2 class="title">JavaScript</h2>
+                <div class="content">
+                  <div>
+                    <label>
+                      <input type="radio" name="" value="">
+                      <span>Allow all sites to run JavaScript (recommended)</span>
+                    </label>
+                  </div>
+                  <div>
+                    <label>
+                      <input type="radio" name="" value="">
+                      <span>Do not allow any site to run JavaScript</span>
+                    </label>
+                  </div>
+                  <div>
+                    <button type="button" name="button">Manage exception..</button>
+                    <a href="#">Learn more</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row"><!---->
+            <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+              <div id="website-flash-section">
+                <h2 class="title">Flash</h2>
+                <div class="content">
+                  <div>
+                    <label>
+                      <input type="radio" name="" value="">
+                      <span>Allow sites to run Flash</span>
+                    </label>
+                  </div>
+                  <div>
+                    <label>
+                      <input type="radio" name="" value="">
+                      <span>Ask first before allowing sites to run Flash (recommended)</span>
+                    </label>
+                  </div>
+                  <div>
+                    <label>
+                      <input type="radio" name="" value="">
+                      <span>Block sites from running Flash</span>
+                    </label>
+                  </div>
+                  <div>
+                    <button type="button" name="button">Manage exception..</button>
+                    <a href="#">Learn more</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row"><!---->
+            <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+              <div id="website-pop-ups-section">
+                <h2 class="title">Pop-ups</h2>
+                <div class="content">
+                  <div>
+                    <label>
+                      <input type="radio" name="" value="">
+                      <span>Allow all sites to show pop-ups</span>
+                    </label>
+                  </div>
+                  <div>
+                    <label>
+                      <input type="radio" name="" value="">
+                      <span>Do not allow any site to show pop-ups (recommended)</span>
+                    </label>
+                  </div>
+                  <div>
+                    <label>
+                      <input type="radio" name="" value="">
+                      <span>Block sites from running Flash</span>
+                    </label>
+                  </div>
+                  <div>
+                    <button type="button" name="button">Manage exception..</button>
+                    <a href="#">Learn more</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row"><!---->
+            <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+              <div id="website-vedio-section">
+                <h2 class="title">Pop-ups</h2>
+                <div class="content">
+                  <div>
+                    <label>
+                      <input type="checkbox" name="" value="">
+                      <span>Enable video pop out.</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row"><!---->
+            <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+              <div id="website-virtual reality-section">
+                <h2 class="title">Virtual Reality</h2>
+                <div class="content">
+                  <div>
+                    <label>
+                      <input type="checkbox" name="" value="">
+                      <span>Enable VR 360 player</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row"><!---->
+            <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+              <div id="website-location-section">
+                <h2 class="title">Location</h2>
+                <div class="content">
+                  <div>
+                    <label>
+                      <input type="radio" name="" value="">
+                      <span>Allow all sites to track my physical location</span>
+                    </label>
+                  </div>
+                  <div>
+                    <label>
+                      <input type="radio" name="" value="">
+                      <span>Ask me when a site tries to track my physical location (recommended)</span>
+                    </label>
+                  </div>
+                  <div>
+                    <label>
+                      <input type="radio" name="" value="">
+                      <span>Do not allow any site to track my physical location</span>
+                    </label>
+                  </div>
+                  <div>
+                    <button type="button" name="button">Manage exception..</button>
+                    <a href="#">Learn more</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row"><!---->
+            <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+              <div id="website-notifications-section">
+                <h2 class="title">Notifications</h2>
+                <div class="content">
+                  <div>
+                    <label>
+                      <input type="radio" name="" value="">
+                      <span>Allow all sites to show desktop notifications</span>
+                    </label>
+                  </div>
+                  <div>
+                    <label>
+                      <input type="radio" name="" value="">
+                      <span>Ask me when a site wants to show desktop notifications (recommended)</span>
+                    </label>
+                  </div>
+                  <div>
+                    <label>
+                      <input type="radio" name="" value="">
+                      <span>Do not allow any site to show desktop notifications</span>
+                    </label>
+                  </div>
+                  <div>
+                    <button type="button" name="button">Manage exception..</button>
+                    <a href="#">Learn more</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row"><!---->
+            <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+              <div id="website-protected-content-section">
+                <h2 class="title">Protected content</h2>
+                <div class="content">
+                  <div>
+                    <label>
+                      <input type="checkbox" name="" value="">
+                      <span>Allow sites to play protected content (recommended)</span>
+                    </label>
+                  </div>
+                  <div>
+                    <p>Some content services use machine identifiers to uniquely identify you for the purposes of authorizing access to protected content.</p>
+                  </div>
+                  <div>
+                    <label>
+                      <input type="checkbox" name="" value="">
+                      <span>Allow identifiers for protected content (computer restart may be required)</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row"><!---->
+            <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+              <div id="website-microphone-section">
+                <h2 class="title">Microphone</h2>
+                <div class="content">
+                  <div>
+                    <label>
+                      <input type="radio" name="" value="">
+                      <span>Ask me when a site requires access to my microphone (recommended)</span>
+                    </label>
+                  </div>
+                  <div>
+                    <label>
+                      <input type="radio" name="" value="">
+                      <span>Do not allow sites to access my microphone</span>
+                    </label>
+                  </div>
+                  <div>
+                    <button type="button" name="button">Manage exception..</button>
+                    <a href="#">Learn more</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row"><!---->
+            <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+              <div id="website-camera-section">
+                <h2 class="title">Camera</h2>
+                <div class="content">
+                  <div>
+                    <label>
+                      <input type="radio" name="" value="">
+                      <span>Ask me when a site requires access to my camera (recommended)</span>
+                    </label>
+                  </div>
+                  <div>
+                    <label>
+                      <input type="radio" name="" value="">
+                      <span>Do not allow sites to access my camera</span>
+                    </label>
+                  </div>
+                  <div>
+                    <button type="button" name="button">Manage exception..</button>
+                    <a href="#">Learn more</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row"><!---->
+            <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+              <div id="website-midi-full-control-section">
+                <h2 class="title">MIDI full control</h2>
+                <div class="content">
+                  <div>
+                    <label>
+                      <input type="radio" name="" value="">
+                      <span>Allow all sites to use system exclusive messages to access MIDI audio devices</span>
+                    </label>
+                  </div>
+                  <div>
+                    <label>
+                      <input type="radio" name="" value="">
+                      <span>Ask me when a site wants to use system exclusive messages to access MIDI audio devices (recommended)</span>
+                    </label>
+                  </div>
+                  <div>
+                    <label>
+                      <input type="radio" name="" value="">
+                      <span>Do not allow any sites to use system exclusive messages to access MIDI audio devices</span>
+                    </label>
+                  </div>
+                  <div>
+                    <button type="button" name="button">Manage exception..</button>
+                    <a href="#">Learn more</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row"><!---->
+            <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+              <div id="website-background-sync-section">
+                <h2 class="title">Background sync</h2>
+                <div class="content">
+                  <div>
+                    <label>
+                      <input type="radio" name="" value="">
+                      <span>Allow recently closed sites to finish sending and receiving data (recommended)</span>
+                    </label>
+                  </div>
+                  <div>
+                    <label>
+                      <input type="radio" name="" value="">
+                      <span>Do not allow recently closed sites to finish sending and receiving data</span>
+                    </label>
+                  </div>
+                  <div>
+                    <button type="button" name="button">Manage exception..</button>
+                    <a href="#">Learn more</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row"><!---->
+            <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+              <div id="website-background-sync-section">
+                <h2 class="title">Background sync</h2>
+                <div class="content">
+                  <div>
+                    <label>
+                      <input type="checkbox" name="" value="">
+                      <span>Download PDF files instead of automatically opening them in Opera.</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="tab-content-item" data-filter="4">
           tab 4

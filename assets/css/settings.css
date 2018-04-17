@@ -68,8 +68,9 @@
   background-color: white;
 }
 .wallpaper-slider{
-    max-width: 700px;
+    width: 700px;
 }
+
 .wallpaper-slider .image{
   min-height: 80px;
   margin: 3px;
@@ -233,4 +234,7 @@
   border-top: 1px solid #dddddd;
   padding: 20px 15px;
   margin: 0 -20px -20px -20px;
+}
+.browser-wrapper{
+  width: 90%;
 }
