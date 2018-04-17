@@ -1,3 +1,5 @@
+const electron = require('electron')
+const remote = electron.remote
 var nodeConsole = require('console');
 var _console = new nodeConsole.Console(process.stdout, process.stderr);
 
@@ -6,6 +8,8 @@ var favicon = require('favicon-getter').default;
 var path = require('path');
 var uuid = require('uuid');
 var bookmarks = path.join(__dirname, 'bookmarks.json');
+
+var osiris_settings = path.join(__dirname, 'settings.json');
 
 var getElementById = function (id) {
     return document.getElementById(id);
@@ -22,7 +26,7 @@ var fave = getElementById('fave');
 var list = getElementById('list');
 var popup = getElementById('fave-popup');
 var addTabBtn = getElementById('nav-tabs-add');
-
+var speedDial = getElementById('speed-dial');
 
 function reloadView () {
     var activeIndex = $('.view-instance.active').index();
@@ -45,22 +49,39 @@ function loadSiteUrl (event) {
         let val = omnibox.value.toLowerCase();
         var url = '';
 
-        if (val.indexOf('http') < 0) {
-            url = 'http://'+ val;
+        switch(val){
+            case 'settings': {
+                console.dir('sulod');
+                document.getElementsByClassName('view-instance')[activeIndex].loadURL('settings.html');
+                // Update tab title based on the loaded site
+                document.getElementsByClassName('view-instance')[activeIndex].addEventListener('did-finish-load', function() {
+                    let title = document.getElementsByClassName('view-instance')[activeIndex].getTitle().split(' ')[0];
+
+                    $('span#tab'+(activeIndex+1)+' i.nav-tabs-title').text('Settings');
+                });
+                break;
+            }
+            default: {
+                if (val.indexOf('http') < 0) {
+                    url = 'http://'+ val;
+                }
+
+                if (val.indexOf('.com') < 0) {
+                    url = url + '.com'
+                }
+
+                document.getElementsByClassName('view-instance')[activeIndex].loadURL(url)
+
+                // Update tab title based on the loaded site
+                document.getElementsByClassName('view-instance')[activeIndex].addEventListener('did-finish-load', function() {
+                    let title = document.getElementsByClassName('view-instance')[activeIndex].getTitle().split(' ')[0];
+
+                    $('span#tab'+(activeIndex+1)+' i.nav-tabs-title').text(title);
+                });
+            }
         }
 
-        if (val.indexOf('.com') < 0) {
-            url = url + '.com'
-        }
-
-        document.getElementsByClassName('view-instance')[activeIndex].loadURL(url)
-
-        // Update tab title based on the loaded site
-        document.getElementsByClassName('view-instance')[activeIndex].addEventListener('did-finish-load', function() {
-            let title = document.getElementsByClassName('view-instance')[activeIndex].getTitle().split(' ')[0];
-
-            $('span#tab'+(activeIndex+1)+' i.nav-tabs-title').text(title);
-        });
+        
     }
 }
 
@@ -192,7 +213,7 @@ function addTab (event) {
     // Create new webview tag and increment view id
     var webviewTag = document.createElement('webview');
     webviewTag.className = 'view-instance active';
-    webviewTag.src = 'http://www.google.com/';
+    webviewTag.src = 'default.html'; //loading of URL updated to default from google.com
     var newIndex = lastIndex + 1;
     webviewTag.id = 'view'+ newIndex;
 
@@ -238,7 +259,61 @@ function closeTab(event) {
     // Update url in address bar when deleting tabs
     omnibox.value = url;
 }
+//Defaut settings tab (History, Speed Dial)
+function defaultSettings(){
+  var element = '<span id="tab'+ id +'" class="nav-tabs-tab" data-session="4">\
+          <i class="nav-tabs-favicon nav-icons">\
+              <svg height="100%" viewBox="0 0 24 24" fill="#ffffff">\
+                  <path d="M0 0h24v24H0z" fill="none"></path>\
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"></path>\
+              </svg>\
+          </i>\
+          <i class="nav-tabs-title" title="Google">Google</i>\
+          <i class="nav-tabs-close nav-icons">\
+              <svg height="100%" viewBox="0 0 24 24">\
+                  <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>\
+                  <path d="M0 0h24v24H0z" fill="none"></path>\
+              </svg>\
+          </i>\
+      </span>'
 
+  $(element).insertBefore('#nav-tabs-add');
+}
+
+function loadStartupSettings(){
+    jsonfile.readFile(osiris_settings, function(err, startup) {
+        //console.dir(startup.osirisStartUp[0]['startPage']);
+        switch(startup.osirisStartUp[0]['selected']){
+            case "1": {
+                // Create new webview tag and increment view id
+                // Remove active class from the previous view
+                var webviewTag = document.getElementById('view2');
+                webviewTag.src = 'default.html'; //loading of URL updated to default from google.com
+                break;
+            }
+            case "2": {
+                var webviewTag = document.getElementById('view2');
+                webviewTag.src = startup.osirisStartUp[0]['lastBrowseURL'];
+
+                omnibox.value = webviewTag.src;
+                break;
+            }
+            case "3": {
+
+                var webviewTag = document.getElementById('view2');
+                var specPageSelected = startup.osirisStartUp[0]['specificPagesSelected'];
+                webviewTag.src = startup.osirisStartUp[0]['specificPagesList'][0][specPageSelected];
+
+                omnibox.value = webviewTag.src;
+                break;
+            }
+            default: {
+                console.dir('Undefined selected Startup Page');
+                break;
+            }
+        }
+    });
+}
 // ------------------------------
 // --           EVENTS
 // ------------------------------
@@ -248,13 +323,25 @@ omnibox.addEventListener('keydown', loadSiteUrl);
 backBtn.addEventListener('click', backView);
 forwardBtn.addEventListener('click', forwardView);
 
-var activeIndex = $('.view-instance.active').index();
-document.getElementsByClassName('view-instance')[activeIndex].addEventListener('did-finish-load', showUrl);
-// view.addEventListener('did-finish-load', showUrl);
+$(function() {
+    var activeIndex = $('.view-instance.active').index();
+
+    _console.log(activeIndex);
+
+    _console.log(document.getElementsByClassName('view-instance')[0]);
+
+    document.getElementsByClassName('view-instance')[activeIndex].addEventListener('did-finish-load', showUrl);
+    // view.addEventListener('did-finish-load', showUrl);
+
+    loadStartupSettings();
+});
+
 
 fave.addEventListener('click', addBookmark);
 list.addEventListener('click', openPopUp);
 popup.addEventListener('click', handleUrl);
+
+//Defaut settings
 
 // Add tab
 addTabBtn.addEventListener('click', addTab);
@@ -268,4 +355,6 @@ $(document.body).on('click', '.nav-tabs-close', closeTab);
 // Load selected bookmark on the selected tab
 
 
+let win = remote.getCurrentWindow();
+win.setDownloadSavePath('/Users/barry.lavides/Downloads/electron-files');
 

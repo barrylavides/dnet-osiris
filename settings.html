@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Osiris Browser</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/sidebar-widget.css">
+    <link rel="stylesheet" href="assets/css/history-tab.css">
+    <link rel="stylesheet" href="assets/css/settings.css">
+  </head>
+  <body>
+    <!--settings wrapper-->
+    <div class="settings-wrapper" id="layout-container">
+      <!--popup settings-->
+      <div class="filter-exception-list" style="display:none;"><!--block ads list exceptions popup-->
+        <div class="filter-exception-content">
+
+          <!--Manage exceptions content-->
+          <div class="manage-exceptions-wrapper" style="display:none">
+            <div class="row">
+              <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                <h3>Block ads - exceptions</h3>
+              </div>
+              <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+                <i id="close-filter-exception" class="fa fa-times" aria-hidden="true"></i>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <span>Site</span>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+                <input type="text" placeholder="search for the site">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="exceptions-menu">
+                  <li><span>[*.]baidu.com</span><span class="remove-exception fa fa-times"></span></li>
+                  <li><span>[*.]baidu.com</span><span class="remove-exception fa fa-times"></span></li>
+                  <li><span>[*.]baidu.com</span><span class="remove-exception fa fa-times"></span></li>
+                  <li><span>[*.]baidu.com</span><span class="remove-exception fa fa-times"></span></li>
+                </ul>
+                <div>
+                  <input type="text" placeholder="Add site" style="width:90%;">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-right exceptions-separator">
+                <button class="manage-fiter-exceptions-button">Done</button>
+              </div>
+            </div>
+          </div>
+          <!---->
+          <!--Manage List content-->
+          <div class="manage-list-wrapper" style="display:none;">
+            <div class="row">
+              <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                <h3>Block ads - Manage list</h3>
+              </div>
+              <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right">
+                <i id="close-filter-mlist" class="fa fa-times" aria-hidden="true"></i>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="manage-list-content" style="max-height: 300px;overflow-y: auto;padding:20px 0;">
+                  <div class="manage-list-title">
+                    <h3>Default list</h3>
+                  </div>
+                  <div>
+                    <ul>
+                      <li>
+                        <input type="checkbox">
+                        <span>
+                          <label>EasyList</label>
+                        </span>
+                      </li>
+                      <li>
+                        <input type="checkbox">
+                        <span>
+                          <label>EasyPrivacy</label>
+                        </span>
+                      </li>
+                      <li>
+                        <input type="checkbox">
+                        <span>
+                          <label>NoCoin (Cryptocurrency Mining Protection)</label>
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="manage-list-title">
+                    <h3>Other list</h3>
+                  </div>
+                  <div>
+                    <ul>
+                      <li>
+                        <input type="checkbox">
+                        <span>
+                          <label>Adblock warning removal</label>
+                        </span>
+                      </li>
+                      <li>
+                        <input type="checkbox">
+                        <span>
+                          <label>Malware block</label>
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="manage-list-title">
+                    <h3>Language</h3>
+                  </div>
+                  <div>
+                    <ul>
+                      <li>
+                        <input type="checkbox">
+                        <span>
+                          <label>Belarusian (RU AdList)</label>
+                        </span>
+                      </li>
+                      <li>
+                        <input type="checkbox">
+                        <span>
+                          <label>Belarusian (RU AdList)</label>
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="manage-list-title">
+                    <h3>Custom list</h3>
+                  </div>
+                  <div>
+                    <input type="text" placeholder="Add a site" style="width:80%;">
+                    <button type="button" name="button">Select File</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="manage-list-update">
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                      <p>
+                        EasyList,EasyPrivacy and NoCoin list are loaded anonymously via orisis.com<br>
+                        All other list are loaded directly from external source
+                      </p>
+                    </div>
+                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                      <p>
+                        Selected list are updated automatically. You can also update them now.
+                      </p>
+                    </div>
+                    <div class="col-xs-4 col-sm-4col-md-8 col-lg-4 text-right">
+                        <button class="manage-list-update-button">Update</button>
+                    </div>
+                </div>
+                </div>
+              </div>
+          </div>
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-right exceptions-separator">
+                <button class="manage-list-button">Done</button>
+              </div>
+            </div>
+          </div>
+          <!---->
+        </div>
+      </div><!--close block ads list exceptions popup-->
+      <!--Left settings-->
+      <div class="left-layout-settings">
+        <div class="sidebar-header">
+          <h1>Settings</h1>
+        </div>
+        <div class="sidebar">
+          <menu class="sidebar-tab">
+            <li class="tab data-active" data-id="1" >Basic</li>
+            <li class="group-separator"></li>
+            <li class="tab" data-id="2">Browser</li>
+            <li class="tab" data-id="3">Websites</li>
+            <li class="tab" data-id="4">Privacy & security</li>
+            <li class="line-separator"></li>
+            <li><a href="">Orisis help</a></li>
+            <li><a href="">Rate orisis</a></li>
+          </menu>
+        </div>
+        <div class="sidebar-footer">
+          <div class="advanced-settings">
+          </div>
+        </div>
+      </div>
+      <!---->
+      <!--Right settings-->
+      <div class="right-layout-settings">
+        <div class="setting-search-bar">
+          <input type="text" placeholder="Search settings">
+        </div>
+        <div class="basic-wrapper tab-content-item data-active" data-filter="1" style="overflow-y:scroll;overflow-x:hidden;"><!--Basic wrapper-->
+          <div class="row"><!--row for block adds-->
+            <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+              <div id="block-adds-section">
+                <h2 class="title">Block ads</h2>
+                <div class="content">
+                    <input type="checkbox" id="block-ads-checkbox">
+                    <span>
+                      <label for="adblocker-checkbox">Block ads and surf the web up to three times faster</label>
+                      <a target="_blank" href="#">
+                        Learn more
+                      </a>
+                    </span>
+                    <div class="block-ads-popup-settings" style="display:none;">
+                      <div>
+                        <button class="manage-exceptions-button">Manage exceptions..</button>
+                      </div>
+                      <div>
+                        <input type="checkbox">
+                        <span>
+                          <label for="easy-list">EasyList</label>
+                        </span>
+                      </div>
+                      <div>
+                        <input type="checkbox">
+                        <span>
+                          <label for="easy privacy">EasyPrivacy</label>
+                        </span>
+                      </div>
+                      <div>
+                        <input type="checkbox">
+                        <span>
+                          <label for="no-coin">NoCoin (Cryptocurrency Mining Protection)</label>
+                        </span>
+                      </div>
+                      <div>
+                        <button class="manage-list-button">Manage list..</button>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row"><!--row for startup-->
+            <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+              <div id="startup-section">
+                <h2 class="title">On startup</h2>
+                <div class="content">
+                  <div>
+                    <input type="radio" name="startup-radio-select[]">
+                    <span>
+                      <label for="startup-radio">Open the startpage</label>
+                    </span>
+                  </div>
+                  <div>
+                    <input type="radio" name="startup-radio-select[]">
+                    <span>
+                      <label for="startup-radio">Continue where i left off</label>
+                    </span>
+                  </div>
+                  <div>
+                    <input type="radio" name="startup-radio-select[]">
+                    <span>
+                      <label for="startup-show-pages">Open a specific page or set of pages</label>
+                      <a is="action-link" id="startup-set-pages" tabindex="0" role="link">Set pages</a>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+              <div id="default-browser-section">
+                <h2 class="title">Default Browser</h2>
+                <div class="content">
+                  <p>
+                    The default browser is currently osiris.
+                  </p>
+                  <button class="default-browser-button">Import bookmarks and setting</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row"><!--row for downloads-->
+            <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+              <div id="download-section">
+                <h2 class="title">Downloads</h2>
+                <div class="content">
+                    <div class="">Download location:
+                      <span>
+                        <input type="text" value="C:\Users\Downloads"><button class="download-button">Change</button>
+                      </span>
+                    </div>
+                    <div>
+                      <input type="checkbox">
+                      <span>
+                        <label for="privacy-download">Ask where to save each file before downloading</label>
+                      </span>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row"><!--row for bookmarks-->
+            <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+              <div id="bookmark-section">
+                <h2 class="title">Bookmarks bar</h2>
+                <div class="content">
+                    <div>
+                      <input type="checkbox">
+                      <span>
+                        <label for="bookmarks-bar-label">Show the bookmarks bar</label>
+                      </span>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row"><!--row for wallpapers-->
+            <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+              <div id="wallpaper-section">
+                <h2 class="title">Wallpapers</h2>
+                <div class="content">
+                    <div>
+                      <input type="checkbox">
+                      <span>
+                        <label for="bookmarks-bar-label">Enable wallpapers</label>
+                      </span>
+                      <div class="wallpaper-slider">
+                        <div class="wallpaper-items-settings">
+                          <div style="width: 103px;"><div class="image" style="background:url('assets/img/startup-background.jpg') no-repeat center;background-size:cover;"></div></div>
+                          <div style="width: 103px;"><div class="image" style="background:url('assets/img/startup-background.jpg') no-repeat center;background-size:cover;"></div></div>
+                          <div style="width: 103px;"><div class="image" style="background:url('assets/img/startup-background.jpg') no-repeat center;background-size:cover;"></div></div>
+                          <div style="width: 103px;"><div class="image" style="background:url('assets/img/startup-background.jpg') no-repeat center;background-size:cover;"></div></div>
+                          <div style="width: 103px;"><div class="image" style="background:url('assets/img/startup-background.jpg') no-repeat center;background-size:cover;"></div></div>
+                          <div style="width: 103px;"><div class="image" style="background:url('assets/img/startup-background.jpg') no-repeat center;background-size:cover;"></div></div>
+                          <div style="width: 103px;"><div class="image" style="background:url('assets/img/startup-background.jpg') no-repeat center;background-size:cover;"></div></div>
+                          <div style="width: 103px;"><div class="image" style="background:url('assets/img/startup-background.jpg') no-repeat center;background-size:cover;"></div></div>
+                        </div>
+                      </div>
+                    </div>
+                      <button class="wallpaper-button">Get more wallpaper</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row"><!--row for pin sidebar-->
+            <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+              <div id="pin-sidebar-section">
+                <h2 class="title">Sidebar</h2>
+                <div class="content">
+                    <div>
+                      <div>
+                        <input type="checkbox">
+                        <span>
+                          <label for="pin-sidebar-label">Pin Sidebar</label>
+                        </span>
+                      </div>
+                      <div>
+                        <button class="manage-sidebar">Manage sidebar..</button>
+                      </div>
+                      <div>
+                        <input type="checkbox">
+                        <span>
+                          <label for="enable-messenger-label">Enable notification badges for messengers</label>
+                        </span>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row"><!--row for pin battery saver-->
+            <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+              <div id="batter-saver-section">
+                <h2 class="title">Battery saver</h2>
+                <div class="content">
+                    <div>
+                      <div>
+                        Save battery and browse up to 50% longer. <a href="">Learn more</a>
+                      </div>
+                      <div>
+                        <input type="checkbox">
+                        <span>
+                          <label for="enable-saver-label">Enable battery saver</label>
+                        </span>
+                      </div>
+                      <div>
+                        <input type="checkbox">
+                        <span>
+                          <label for="save-battery-label">Save battery automatically</label>
+                        </span>
+                      </div>
+                      <div>
+                        <input type="checkbox">
+                        <span>
+                          <label for="always-used-icon-toolbar-label">Always show battery icon on toolbar</label>
+                        </span>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row"><!--row for pin battery saver-->
+            <div class="col-sx-12 col-sm-12 col-md-12 col-lg-12">
+              <div id="cookies-section">
+                <h2 class="title">Cookies</h2>
+                <div class="content">
+                    <div>
+                      <div>
+                        <input type="radio" name="cookies-option">
+                        <span>
+                          <label for="allow-recommended-label">Allow local data to be set (recommended)</label>
+                        </span>
+                      </div>
+                      <div>
+                        <input type="radio" name="cookies-option">
+                        <span>
+                          <label for="local-data-label">Keep local data only until I quit my browser</label>
+                        </span>
+                      </div>
+                      <div>
+                        <input type="radio" name="cookies-option">
+                        <span>
+                          <label for="block-sites-label">Block sites from setting any data</label>
+                        </span>
+                      </div>
+                      <div>
+                        <input type="checkbox" name="cookies-option">
+                        <span>
+                          <label for="block-third-party-label">Block third-party cookies and site data</label>
+                        </span>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-content-item" data-filter="2">
+          tab 2
+        </div>
+        <div class="tab-content-item" data-filter="3">
+          tab 3
+        </div>
+        <div class="tab-content-item" data-filter="4">
+          tab 4
+        </div>
+      </div>
+      <!---->
+    </div>
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="assets/js/global-script.js"></script>
+    <script>
+      require('./renderer.js')
+    </script>
+  </body>
+</html>
