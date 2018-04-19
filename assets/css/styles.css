@@ -939,6 +939,9 @@ Spee dial class
   margin: 7px 0 6px 0;
   color: #2850a7;
 }
+.download-history-list .download-content a{
+  text-decoration: none;
+}
 .download-history-list .download-content .download-url-show-in-folder{
 
 }
