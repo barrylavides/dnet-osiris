@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Osiris Browser</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/sidebar-widget.css">
+    <link rel="stylesheet" href="assets/css/history-tab.css">
+    <link rel="stylesheet" href="assets/css/settings.css">
+  </head>
+  <body style="">
+    <section class="download-page-wrapper">
+      <header class="download-header">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-xs-2 col-sm-3 col-md-2 col-md-2">
+              <label class="header-title">Download</label>
+            </div>
+            <div class="col-xs-6 col-sm-8 col-md-8 col-md-8">
+              <div class="download-page-search-box">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <input id="download-search-box" type="text" name="" value="" placeholder="Search downloads">
+              </div>
+            </div>
+            <div class="col-xs-2 col-sm-2 col-md-2 col-md-2">
+              <i class=" fa fa-sliders-h"></i>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div id="download-list-page">
+        <div class="container">
+          <div class="download-history-list">
+            <div class="list">
+              <div class="row">
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                  <div class="download-icon">
+                    <img src="assets/img/pdf-download-icon.png" alt="">
+                  </div>
+                </div>
+                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                  <div class="download-content">
+                    <div class="download-remove">
+                      <i class="fa fa-times"></i>
+                    </div>
+                    <h1>winmarkltd-BootstrapFormHelpers-2.3.0-17-gd4201db.zip</h1>
+                    <div class="">
+                      <a href="#" id="download-url">winmarkltd-BootstrapFormHelpers-2.3.0-17-gd4201db.zip</a>
+                    </div>
+                    <div class="" style="margin-top: 18px;">
+                      <a href="#" class="download-url-show-in-folder">Show in folder</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="list deleted-download">
+              <div class="row">
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                  <div class="download-icon">
+                    <img src="assets/img/pdf-download-icon.png" alt="">
+                  </div>
+                </div>
+                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                  <div class="download-content">
+                    <div class="download-remove">
+                      <i class="fa fa-times"></i>
+                    </div>
+                    <h1><span>winmarkltd-BootstrapFormHelpers-2.3.0-17-gd4201db.zip</span></h1>
+                    <div class="">
+                      <a href="#" id="download-url">winmarkltd-BootstrapFormHelpers-2.3.0-17-gd4201db.zip</a>
+                    </div>
+                    <div class="" style="margin-top: 18px;">
+                      <a href="#" class="download-url-show-in-folder">Show in folder</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--End download page-->
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="assets/js/global-script.js"></script>
+    <script>
+      require('./renderer.js')
+    </script>
+  </body>
+</html>
