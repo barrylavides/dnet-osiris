@@ -86,23 +86,44 @@ $('.wallpaper-items-settings').slick({
   });
 
   $('.manage-exceptions-button').click(function(event){
+    event.preventDefault();
     $(filterException).show();
     $(manageExceptions).show();
   });
 
   $(closeException).click(function(event){
+    event.preventDefault();
     $(filterException).hide();
     $(manageExceptions).hide();
   });
 
   $('.manage-list-button').click(function(event){
+    event.preventDefault();
     $(filterException).show();
     $('.manage-list-wrapper').show();
   });
 
   $(closemList).click(function(event){
+    event.preventDefault();
     $(filterException).hide();
     $('.manage-list-wrapper').hide();
   });
-
+  //Startup overlay waitForAnimate
+  $('#startup-set-pages').click(function(event){
+    event.preventDefault();
+    $('.startup-overlay-wrapper').show();
+  });
+  $('#close-startup-form').click(function(event){
+    event.preventDefault();
+    $('.startup-overlay-wrapper').hide();
+  });
+//Bookmarks and imports overlay waitForAnimate
+  $('#default-browser-button-bookmars').click(function(event){
+    event.preventDefault();
+    $('.bookmarks-import-overlay-wrapper').show();
+  });
+  $('#close-bookmark-settings-form').click(function(event){
+    event.preventDefault();
+    $('.bookmarks-import-overlay-wrapper').hide();
+  });
 })(jQuery);
