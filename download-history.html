@@ -21,18 +21,26 @@
             <div class="col-xs-6 col-sm-8 col-md-8 col-md-8">
               <div class="download-page-search-box">
                 <i class="fa fa-search" aria-hidden="true"></i>
-                <input id="download-search-box" type="text" name="" value="" placeholder="Search downloads">
+                <input id="download-search-box" onkeyup="myFunction()" type="text" name="" value="" placeholder="Search downloads">
+                <!-- <span class="remove-search-value fa fa-times" aria-hidden="true" style="display:none;"></span> -->
               </div>
             </div>
-            <div class="col-xs-2 col-sm-2 col-md-2 col-md-2">
-              <i class=" fa fa-sliders-h"></i>
+            <div class="col-xs-2 col-sm-2 col-md-2 col-md-2 text-right">
+              <button id="download-menu" class="fa fa-cog" aria-hidden="true"></button>
+              <nav>
+                <ul class="download-menu-settings text-left" style="display:none;">
+                  <li><a href="#">Clear All</a></li>
+                  <li><a href="#">Open Download Folder</a></li>
+                </ul>
+              </nav>
             </div>
           </div>
         </div>
       </header>
+
       <div id="download-list-page">
-        <div class="container">
-          <div class="download-history-list">
+        <ul id="download-list">
+          <li>
             <div class="list">
               <div class="row">
                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
@@ -45,7 +53,7 @@
                     <div class="download-remove">
                       <i class="fa fa-times"></i>
                     </div>
-                    <h1>winmarkltd-BootstrapFormHelpers-2.3.0-17-gd4201db.zip</h1>
+                    <h1><span>This is a test 1</span></h1>
                     <div class="">
                       <a href="#" id="download-url">winmarkltd-BootstrapFormHelpers-2.3.0-17-gd4201db.zip</a>
                     </div>
@@ -56,6 +64,8 @@
                 </div>
               </div>
             </div>
+          </li>
+          <li>
             <div class="list deleted-download">
               <div class="row">
                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
@@ -68,7 +78,7 @@
                     <div class="download-remove">
                       <i class="fa fa-times"></i>
                     </div>
-                    <h1><span>winmarkltd-BootstrapFormHelpers-2.3.0-17-gd4201db.zip</span></h1>
+                    <h1><span>This is a test 2</span></h1>
                     <div class="">
                       <a href="#" id="download-url">winmarkltd-BootstrapFormHelpers-2.3.0-17-gd4201db.zip</a>
                     </div>
@@ -79,10 +89,30 @@
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
     </section>
+    <script>
+    function myFunction() {
+        var input, filter, ul, li, span, i;
+        input = document.getElementById("download-search-box");
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("download-list");
+        li = ul.getElementsByTagName("li");
+        for (i = 0; i < li.length; i++) {
+
+            span = li[i].getElementsByTagName("span")[0];
+            if (span.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+                //$('.remove-search-value').show();
+            } else {
+                li[i].style.display = "none";
+
+            }
+        }
+    }
+    </script>
     <!--End download page-->
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
     <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>

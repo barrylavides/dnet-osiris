@@ -127,3 +127,13 @@ $('.wallpaper-items-settings').slick({
     $('.bookmarks-import-overlay-wrapper').hide();
   });
 })(jQuery);
+(function( $ ) {
+  $('#download-menu').click(function(event){
+    event.preventDefault();
+    $('.download-menu-settings').show();
+  });
+  $('.download-menu-settings a').click(function(event){
+    event.preventDefault();
+    $('.download-menu-settings').hide();
+  });
+})(jQuery);
