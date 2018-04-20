@@ -8,6 +8,7 @@ var favicon = require('favicon-getter').default;
 var path = require('path');
 var uuid = require('uuid');
 var bookmarks = path.join(__dirname, 'bookmarks.json');
+var downloadHistoryFile = path.join(__dirname, 'download_history.json');
 
 var getElementById = function (id) {
     return document.getElementById(id);
@@ -260,6 +261,66 @@ function defaultSettings(){
 
   $(element).insertBefore('#nav-tabs-add');
 }
+
+
+function downloadHistory() {
+    jsonfile.readFile(downloadHistoryFile, function(err, obj) {
+        Object.keys(obj).forEach(function(key) {
+            var val = obj[key];
+
+            if (val.files.length > 1) {
+                for(var i=0; i<val.files.length; i++) {
+                    $('div.download-history-list div.list').append('<div class="row">\
+                      <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">\
+                        <div class="download-icon">\
+                          <img src="assets/img/pdf-download-icon.png" alt="">\
+                        </div>\
+                      </div>\
+                      <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">\
+                        <div class="download-content">\
+                          <div class="download-remove">\
+                            <i class="fa fa-times"></i>\
+                          </div>\
+                          <h1>'+ val.files[i].title +'</h1>\
+                          <div class="">\
+                            <a href="#" id="download-url">'+ val.files[i].title +'</a>\
+                          </div>\
+                          <div class="" style="margin-top: 18px;">\
+                            <a href="#" class="download-url-show-in-folder">Show in folder</a>\
+                          </div>\
+                        </div>\
+                      </div>\
+                    </div>')
+                }
+            } else {
+                $('div.download-history-list div.list').append('<div class="row">\
+                  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">\
+                    <div class="download-icon">\
+                      <img src="assets/img/pdf-download-icon.png" alt="">\
+                    </div>\
+                  </div>\
+                  <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">\
+                    <div class="download-content">\
+                      <div class="download-remove">\
+                        <i class="fa fa-times"></i>\
+                      </div>\
+                      <h1>'+ val.files[0].title +'</h1>\
+                      <div class="">\
+                        <a href="#" id="download-url">'+ val.files[0].title +'</a>\
+                      </div>\
+                      <div class="" style="margin-top: 18px;">\
+                        <a href="#" class="download-url-show-in-folder">Show in folder</a>\
+                      </div>\
+                    </div>\
+                  </div>\
+                </div>')
+            }
+        });
+    });
+}
+
+downloadHistory()
+
 // ------------------------------
 // --           EVENTS
 // ------------------------------
@@ -269,16 +330,8 @@ omnibox.addEventListener('keydown', loadSiteUrl);
 backBtn.addEventListener('click', backView);
 forwardBtn.addEventListener('click', forwardView);
 
-$(function() {
-    var activeIndex = $('.view-instance.active').index();
-
-    _console.log(activeIndex);
-
-    _console.log(document.getElementsByClassName('view-instance')[0]);
-
-    document.getElementsByClassName('view-instance')[activeIndex].addEventListener('did-finish-load', showUrl);
-    // view.addEventListener('did-finish-load', showUrl);
-});
+// var activeIndex = $('.view-instance.active').index();
+// document.getElementsByClassName('view-instance')[activeIndex].addEventListener('did-finish-load', showUrl);
 
 
 fave.addEventListener('click', addBookmark);
@@ -301,4 +354,6 @@ $(document.body).on('click', '.nav-tabs-close', closeTab);
 
 let win = remote.getCurrentWindow();
 win.setDownloadSavePath('/Users/barry.lavides/Downloads/electron-files');
+
+
 
