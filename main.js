@@ -5,6 +5,7 @@ const app = electron.app
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow
 const dialog = electron.dialog
+const shell = electron.shell
 const path = require('path')
 const url = require('url')
 const jsonfile = require('jsonfile');
@@ -37,6 +38,9 @@ function createWindow () {
         // when you should delete the corresponding element.
         mainWindow = null
     })
+
+    // Opens a folder in a computer
+    // shell.showItemInFolder('/Users/barry.lavides/Downloads/electron-files')
 }
 
 // This method will be called when Electron has finished
@@ -109,6 +113,7 @@ electron.BrowserWindow.prototype.setDownloadSavePath = function (path) {
         // item.setSavePath(path);
     });
 };
+
 
 
 

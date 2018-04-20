@@ -10,6 +10,8 @@ var uuid = require('uuid');
 var bookmarks = path.join(__dirname, 'bookmarks.json');
 var downloadHistoryFile = path.join(__dirname, 'download_history.json');
 
+var osiris_settings = path.join(__dirname, 'settings.json');
+
 var getElementById = function (id) {
     return document.getElementById(id);
 }
@@ -195,7 +197,7 @@ function addTab (event) {
     // Create new webview tag and increment view id
     var webviewTag = document.createElement('webview');
     webviewTag.className = 'view-instance active';
-    webviewTag.src = 'http://www.google.com/';
+    webviewTag.src = 'default.html'; //loading of URL updated to default from google.com
     var newIndex = lastIndex + 1;
     webviewTag.id = 'view'+ newIndex;
 
@@ -262,7 +264,6 @@ function defaultSettings(){
   $(element).insertBefore('#nav-tabs-add');
 }
 
-
 function downloadHistory() {
     jsonfile.readFile(downloadHistoryFile, function(err, obj) {
         Object.keys(obj).forEach(function(key) {
@@ -270,7 +271,7 @@ function downloadHistory() {
 
             if (val.files.length > 1) {
                 for(var i=0; i<val.files.length; i++) {
-                    $('div.download-history-list div.list').append('<div class="row">\
+                    $('#download-list div.list').append('<div class="row">\
                       <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">\
                         <div class="download-icon">\
                           <img src="assets/img/pdf-download-icon.png" alt="">\
@@ -293,7 +294,7 @@ function downloadHistory() {
                     </div>')
                 }
             } else {
-                $('div.download-history-list div.list').append('<div class="row">\
+                $('#download-list div.list').append('<div class="row">\
                   <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">\
                     <div class="download-icon">\
                       <img src="assets/img/pdf-download-icon.png" alt="">\
@@ -321,6 +322,41 @@ function downloadHistory() {
 
 downloadHistory()
 
+function loadStartupSettings(){
+    jsonfile.readFile(osiris_settings, function(err, startup) {
+        //console.dir(startup.osirisStartUp[0]['startPage']);
+        switch(startup.osirisStartUp[0]['selected']){
+            case "1": {
+                // Create new webview tag and increment view id
+                // Remove active class from the previous view
+                var webviewTag = document.getElementById('view2');
+                webviewTag.src = 'default.html'; //loading of URL updated to default from google.com
+                break;
+            }
+            case "2": {
+                var webviewTag = document.getElementById('view2');
+                webviewTag.src = startup.osirisStartUp[0]['lastBrowseURL'];
+
+                omnibox.value = webviewTag.src;
+                break;
+            }
+            case "3": {
+
+                var webviewTag = document.getElementById('view2');
+                var specPageSelected = startup.osirisStartUp[0]['specificPagesSelected'];
+                webviewTag.src = startup.osirisStartUp[0]['specificPagesList'][0][specPageSelected];
+
+                omnibox.value = webviewTag.src;
+                break;
+            }
+            default: {
+                console.dir('Undefined selected Startup Page');
+                break;
+            }
+        }
+    });
+}
+
 // ------------------------------
 // --           EVENTS
 // ------------------------------
@@ -330,8 +366,10 @@ omnibox.addEventListener('keydown', loadSiteUrl);
 backBtn.addEventListener('click', backView);
 forwardBtn.addEventListener('click', forwardView);
 
+
 // var activeIndex = $('.view-instance.active').index();
 // document.getElementsByClassName('view-instance')[activeIndex].addEventListener('did-finish-load', showUrl);
+loadStartupSettings();
 
 
 fave.addEventListener('click', addBookmark);
