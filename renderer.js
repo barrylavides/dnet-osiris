@@ -270,6 +270,10 @@ function defaultSettings(){
 }
 
 function downloadHistory() {
+    if (fs.existsSync(downloadHistoryFile) === false) {
+        fs.openSync(downloadHistoryFile, 'w');
+    }
+
     jsonfile.readFile(downloadHistoryFile, function(err, obj) {
         Object.keys(obj).forEach(function(key) {
             var val = obj[key];
