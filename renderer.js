@@ -2,6 +2,7 @@ const electron = require('electron')
 const remote = electron.remote
 var nodeConsole = require('console');
 var _console = new nodeConsole.Console(process.stdout, process.stderr);
+var fs = require('fs');
 
 var jsonfile = require('jsonfile');
 var favicon = require('favicon-getter').default;
@@ -102,6 +103,10 @@ Bookmark.prototype.ELEMENT = function () {
 }
 
 function addBookmark () {
+    if (fs.existsSync(bookmarks) === false) {
+        fs.openSync(bookmarks, 'w');
+    }
+
     var activeIndex = $('.view-instance.active').index();
     var view = document.getElementsByClassName('view-instance')[activeIndex];
     let url = view.src;
@@ -341,7 +346,6 @@ function loadStartupSettings(){
                 break;
             }
             case "3": {
-
                 var webviewTag = document.getElementById('view2');
                 var specPageSelected = startup.osirisStartUp[0]['specificPagesSelected'];
                 webviewTag.src = startup.osirisStartUp[0]['specificPagesList'][0][specPageSelected];
