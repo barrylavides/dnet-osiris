@@ -3,6 +3,7 @@ const remote = electron.remote
 var nodeConsole = require('console');
 var _console = new nodeConsole.Console(process.stdout, process.stderr);
 var fs = require('fs');
+const shell = electron.shell
 
 var jsonfile = require('jsonfile');
 var favicon = require('favicon-getter').default;
@@ -293,10 +294,10 @@ function downloadHistory() {
                           </div>\
                           <h1>'+ val.files[i].title +'</h1>\
                           <div class="">\
-                            <a href="#" id="download-url">'+ val.files[i].title +'</a>\
+                            <a href="#" id="'+ val.files[i].id +'">'+ val.files[i].title +'</a>\
                           </div>\
                           <div class="" style="margin-top: 18px;">\
-                            <a href="#" class="download-url-show-in-folder">Show in folder</a>\
+                            <a href="#" data-path="'+ val.files[i].localPath +'" class="download-url-show-in-folder" id="'+ val.files[i].id +'">Show in folder</a>\
                           </div>\
                         </div>\
                       </div>\
@@ -316,10 +317,10 @@ function downloadHistory() {
                       </div>\
                       <h1>'+ val.files[0].title +'</h1>\
                       <div class="">\
-                        <a href="#" id="download-url">'+ val.files[0].title +'</a>\
+                        <a href="#" id="'+ val.files[0].id +'">'+ val.files[0].title +'</a>\
                       </div>\
                       <div class="" style="margin-top: 18px;">\
-                        <a href="#" class="download-url-show-in-folder">Show in folder</a>\
+                        <a href="#" data-path="'+ val.files[0].localPath +'" class="download-url-show-in-folder" id="'+ val.files[0].id +'">Show in folder</a>\
                       </div>\
                     </div>\
                   </div>\
@@ -377,7 +378,7 @@ forwardBtn.addEventListener('click', forwardView);
 
 // var activeIndex = $('.view-instance.active').index();
 // document.getElementsByClassName('view-instance')[activeIndex].addEventListener('did-finish-load', showUrl);
-loadStartupSettings();
+// loadStartupSettings();
 
 
 fave.addEventListener('click', addBookmark);
@@ -397,6 +398,13 @@ $(document.body).on('click', '.nav-tabs-close', closeTab);
 // Forward, back and refresh buttons on selected tab
 // Load selected bookmark on the selected tab
 
+
+$(document.body).on('click', '.download-url-show-in-folder', function() {
+    var localPath = $(this).data('path').split('/').slice(0, -1).join('/');
+
+    // Opens a folder in a computer
+    shell.showItemInFolder($(this).data('path'))
+});
 
 let win = remote.getCurrentWindow();
 win.setDownloadSavePath('/Users/barry.lavides/Downloads/electron-files');
